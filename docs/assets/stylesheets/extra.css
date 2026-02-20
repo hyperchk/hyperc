@@ -1,3 +1,62 @@
 .md-footer-meta {
   display: none;
 }
+
+body {
+  cursor: url("/assets/images/cursor32.png") 16 16,
+          url("/assets/images/cursor32.cur"),
+          auto;
+}
+
+
+/*
+* {
+  cursor: crosshair !important;
+}
+*/
+
+/* ===== HEADER ANIMADO SUTIL ===== */
+.md-header {
+  background: linear-gradient(
+    90deg,
+    #000 0%,
+    #6b0000 50%,
+    #000 100%
+  );
+  background-size: 200% 200%;
+  animation: headerFlow 8s ease infinite;
+}
+
+@keyframes headerFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+/* ===== SIDEBAR LINK ACTIVO ===== */
+.md-nav__link--active {
+  color: #ff2a2a !important;
+  text-shadow: 0 0 8px rgba(255,0,0,0.7);
+  font-weight: bold;
+}
+
+.md-nav__link:hover {
+  color: #ff5555;
+  transition: 0.3s ease;
+}
+
+
+/* ===== FONDO GRID TERMINAL ===== */
+body {
+  background-color: #000;
+  background-image:
+    linear-gradient(rgba(255,0,0,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,0,0,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+
+.md-main__inner {
+  box-shadow: 0 0 40px rgba(255,0,0,0.05);
+}

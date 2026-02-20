@@ -10,8 +10,8 @@ theme:
       accent: red
 
   features:
+    - navigation.prune
     - navigation.expand
-    - navigation.sections
     - navigation.top
     - navigation.tracking
     - navigation.path
