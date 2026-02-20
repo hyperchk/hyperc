@@ -1,8 +1,9 @@
-site_name: HyperC Notes
+site_name: hyperc
 
 theme:
   name: material
   logo: assets/images/logo.jpg
+  favicon: assets/images/logo.jpg
   palette:
     - scheme: slate
       primary: black
@@ -12,15 +13,22 @@ theme:
     - navigation.expand
     - navigation.sections
     - navigation.top
+    - navigation.tracking
+    - navigation.path
     - navigation.instant
     - content.code.copy
     - search.highlight
     - search.suggest
+    - search.highlight
+    - search.suggest
 
 
-plugins:
-  - search
+
+pluginscustom_dir: 
+  - search:
+      lang: en
   - awesome-pages
+
 
 extra_css:
   - assets/stylesheets/extra.css

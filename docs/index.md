@@ -1,17 +1,36 @@
-# Welcome to MkDocs
+﻿# hyperc
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+> Learn. Hack. Document. Repeat.
 
-## Commands
+Cybersecurity | HTB | CTF | Red Team Journey
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+---
 
-## Project layout
+## 🔥 What you'll find here
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+- Detailed HTB writeups
+- AD exploitation notes
+- Red Team methodologies
+- CTF breakdowns
+- Personal research
+
+---
+
+## 🎯 Current Focus
+
+- Active Directory exploitation
+- Privilege escalation
+- Post-exploitation tradecraft
+- OSCP / CPTS prep
+
+## 📈 Stats
+
+- HTB Machines Completed: 47
+- Pro Labs: Dante
+- CTFs Played: 12
+- Writeups Published: 38
+
+
+![HTB](https://img.shields.io/badge/HTB-Active-red)
+![OSCP](https://img.shields.io/badge/OSCP-In_Progress-darkred)
+![Focus](https://img.shields.io/badge/Focus-AD_Exploitation-black)
