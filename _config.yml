@@ -1,4 +1,4 @@
-theme: minima
-title: Blog de Apuntes de hyperc
-author: Alonso-sudo
-description: Mis apuntes sobre hacking, programación y tecnología
+title: HyperC Notes
+description: Apuntes de HTB y CTF
+theme: just-the-docs
+color_scheme: dark
