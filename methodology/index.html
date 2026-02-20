@@ -9,26 +9,28 @@
       
       
       
+        <link rel="prev" href="..">
       
-        <link rel="next" href="methodology/">
+      
+        <link rel="next" href="../hack-the-box/machines/easy/linux/a/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/logo.jpg">
+      <link rel="icon" href="../assets/images/logo.jpg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
-        <title>hyperc</title>
+        <title>methodology - hyperc</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -47,9 +49,9 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/extra.css">
+      <link rel="stylesheet" href="../assets/stylesheets/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -74,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#whoami" class="md-skip">
+        <a href="#methodology" class="md-skip">
           Skip to content
         </a>
       
@@ -90,9 +92,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="hyperc" class="md-header__button md-logo" aria-label="hyperc" data-md-component="logo">
+    <a href=".." title="hyperc" class="md-header__button md-logo" aria-label="hyperc" data-md-component="logo">
       
-  <img src="assets/images/logo.jpg" alt="logo">
+  <img src="../assets/images/logo.jpg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -109,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              whoami
+              methodology
             
           </span>
         </div>
@@ -201,15 +203,42 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="hyperc" class="md-nav__button md-logo" aria-label="hyperc" data-md-component="logo">
+    <a href=".." title="hyperc" class="md-nav__button md-logo" aria-label="hyperc" data-md-component="logo">
       
-  <img src="assets/images/logo.jpg" alt="logo">
+  <img src="../assets/images/logo.jpg" alt="logo">
 
     </a>
     hyperc
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    whoami
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
     
       
       
@@ -234,7 +263,7 @@
   <span class="md-ellipsis">
     
   
-    whoami
+    methodology
   
 
     
@@ -245,14 +274,14 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="." class="md-nav__link md-nav__link--active">
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    whoami
+    methodology
   
 
     
@@ -278,10 +307,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-youll-find-here" class="md-nav__link">
+  <a href="#recon" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🔥 What you'll find here
+        Recon
       
     </span>
   </a>
@@ -289,10 +318,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#current-focus" class="md-nav__link">
+  <a href="#enumeration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🎯 Current Focus
+        Enumeration
       
     </span>
   </a>
@@ -300,10 +329,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#stats" class="md-nav__link">
+  <a href="#privilege-escalation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📈 Stats
+        Privilege Escalation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-exploitation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Post-Exploitation
       
     </span>
   </a>
@@ -314,33 +354,6 @@
   
 </nav>
       
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="methodology/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    methodology
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -379,7 +392,7 @@
   
   
   
-    <a href="hack-the-box/machines/easy/linux/a/" class="md-nav__link">
+    <a href="../hack-the-box/machines/easy/linux/a/" class="md-nav__link">
       
   
   
@@ -433,7 +446,7 @@
   
   
   
-    <a href="hack-the-box-lives/" class="md-nav__link">
+    <a href="../hack-the-box-lives/" class="md-nav__link">
       
   
   
@@ -486,10 +499,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-youll-find-here" class="md-nav__link">
+  <a href="#recon" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🔥 What you'll find here
+        Recon
       
     </span>
   </a>
@@ -497,10 +510,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#current-focus" class="md-nav__link">
+  <a href="#enumeration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🎯 Current Focus
+        Enumeration
       
     </span>
   </a>
@@ -508,10 +521,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#stats" class="md-nav__link">
+  <a href="#privilege-escalation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📈 Stats
+        Privilege Escalation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-exploitation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Post-Exploitation
       
     </span>
   </a>
@@ -543,38 +567,32 @@
 
 
 
-<h1 id="whoami">whoami</h1>
-<blockquote>
-<p>Learn. Hack. Document. Repeat.</p>
-</blockquote>
-<p>Cybersecurity | HTB | CTF | Red Team Journey</p>
-<hr />
-<h2 id="what-youll-find-here">🔥 What you'll find here</h2>
+<h1 id="methodology">methodology</h1>
+<h2 id="recon">Recon</h2>
 <ul>
-<li>Detailed HTB writeups</li>
-<li>AD exploitation notes</li>
-<li>Red Team methodologies</li>
-<li>CTF breakdowns</li>
-<li>Personal research</li>
+<li>Nmap baseline scan</li>
+<li>Service fingerprinting</li>
+<li>Manual verification</li>
 </ul>
-<hr />
-<h2 id="current-focus">🎯 Current Focus</h2>
+<h2 id="enumeration">Enumeration</h2>
 <ul>
-<li>Active Directory exploitation</li>
-<li>Privilege escalation</li>
-<li>Post-exploitation tradecraft</li>
-<li>OSCP / CPTS prep</li>
+<li>Web fuzzing</li>
+<li>SMB / LDAP / Kerberos enumeration</li>
+<li>AD mapping</li>
 </ul>
-<h2 id="stats">📈 Stats</h2>
+<h2 id="privilege-escalation">Privilege Escalation</h2>
 <ul>
-<li>HTB Machines Completed: 47</li>
-<li>Pro Labs: Dante</li>
-<li>CTFs Played: 12</li>
-<li>Writeups Published: 38</li>
+<li>Local misconfigs</li>
+<li>Token abuse</li>
+<li>ACL abuse</li>
+<li>Kerberoasting</li>
 </ul>
-<p><img alt="HTB" src="https://img.shields.io/badge/HTB-Active-red" />
-<img alt="OSCP" src="https://img.shields.io/badge/OSCP-In_Progress-darkred" />
-<img alt="Focus" src="https://img.shields.io/badge/Focus-AD_Exploitation-black" /></p>
+<h2 id="post-exploitation">Post-Exploitation</h2>
+<ul>
+<li>Lateral movement</li>
+<li>Persistence</li>
+<li>Cleanup</li>
+</ul>
 
 
 
@@ -630,10 +648,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.prune", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.path", "navigation.instant", "content.code.copy", "search.highlight", "search.suggest", "search.highlight", "search.suggest"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.prune", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.path", "navigation.instant", "content.code.copy", "search.highlight", "search.suggest", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
