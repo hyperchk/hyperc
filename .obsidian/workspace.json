@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/hack-the-box/machines/easy/linux/# Soulmate.md",
+                "file": "docs/hack-the-box/machines/easy/linux/Soulmate/Soulmate - hyperc.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "# Soulmate"
+              "title": "Soulmate - hyperc"
             }
           }
         ]
@@ -184,5 +184,30 @@
     }
   },
   "active": "cf3048ea78e5fa21",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "docs/hack-the-box/machines/easy/linux/Soulmate/Media/webshell.png",
+    "docs/hack-the-box/machines/easy/linux/Soulmate/Media/Submit.png",
+    "docs/hack-the-box/machines/easy/linux/Soulmate/Media/Up.png",
+    "docs/hack-the-box/machines/easy/linux/Soulmate/Media/Ben.png",
+    "docs/hack-the-box/machines/easy/linux/Soulmate/Media/Save.png",
+    "docs/hack-the-box/machines/easy/linux/Soulmate/Soulmate - hyperc.md",
+    "docs/hack-the-box/machines/easy/linux/Soulmate/Media/Change.png",
+    "docs/hack-the-box/machines/easy/linux/Soulmate/Media/Users.png",
+    "docs/hack-the-box/machines/easy/linux/Soulmate/Media/webProd.png",
+    "docs/hack-the-box/machines/easy/linux/Soulmate/Media/Soulmate-page-ftp.png",
+    "docs/hack-the-box/machines/easy/linux/Soulmate/Media/Login.png",
+    "docs/hack-the-box/machines/easy/linux/Soulmate/Media/Bypass.png",
+    "docs/hack-the-box/machines/easy/linux/Soulmate/Media",
+    "docs/hack-the-box/machines/easy/linux/# Soulmate.md",
+    "docs/hack-the-box/machines/easy/linux/Soulmate",
+    "docs/hack-the-box/machines/easy/linux/Media",
+    "docs/methodology.md",
+    "site/search/search_index.json",
+    "site/search",
+    "site/hack-the-box-lives/index.html",
+    "site/hack-the-box-lives",
+    "site/hack-the-box/machines/medium/windows/signed/index.html",
+    "site/hack-the-box/machines/medium/windows/signed",
+    "site/hack-the-box/machines/medium/windows"
+  ]
 }
