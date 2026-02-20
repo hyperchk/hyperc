@@ -1,20 +1,8 @@
 ---
-title: NombreMaquina
-parent: Medium
-nav_order: X
+title: Easy
+parent: machines
+has_children: true
+nav_order: 1
 ---
 
-# NombreMaquina
-
-## 🧠 Información
-
-- IP:
-- Dificultad:
-- SO:
-
----
-
-## 🔎 Recon
-
-```bash
-nmap -sC -sV
+# Easy Machines
