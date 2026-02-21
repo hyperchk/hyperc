@@ -1,4 +1,4 @@
-﻿# hyperc
+# hyperc
 
 > Break it. Fix it. Document it. Level up.
 
