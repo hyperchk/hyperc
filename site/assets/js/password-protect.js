@@ -1,6 +1,6 @@
 (async function () {
 
-    const correctHash = "2af9bef3221be51214fdb77683bd75868a9be643e4d081edb6135cd4d09f5c12";
+    const correctHash = "8c00dbe71d230b153fd286306168239955819c55611f7f671472c96ba582a83c";
 
     const protectedPaths = [
         "/hack-the-box/machines/medium/linux/interpreter/write%20up/"
