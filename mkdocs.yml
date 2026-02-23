@@ -38,6 +38,3 @@ markdown_extensions:
   - pymdownx.highlight:
       pygments_style: monokai
   - pymdownx.superfences
-
-extra_javascript:
-  - assets/js/password-protect.js
