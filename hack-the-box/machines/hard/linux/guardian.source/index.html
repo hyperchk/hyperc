@@ -602,6 +602,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guardian
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -618,6 +636,114 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#initial-port-scanning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initial Port Scanning
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Initial Port Scanning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#findings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Findings:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Findings:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#guardianhtb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        guardian.htb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#portalguardianhtb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        portal.guardian.htb
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#directory-enumeration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Directory Enumeration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#source-code-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Source code review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vulnerable-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vulnerable code:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -834,6 +960,103 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#initial-port-scanning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initial Port Scanning
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Initial Port Scanning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#findings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Findings:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Findings:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#guardianhtb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        guardian.htb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#portalguardianhtb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        portal.guardian.htb
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#directory-enumeration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Directory Enumeration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#source-code-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Source code review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vulnerable-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vulnerable code:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1016,7 +1239,7 @@
 
 
 <h1 id="guardian">Guardian</h1>
-<h1 id="initial-port-scanning">Initial Port Scanning</h1>
+<h2 id="initial-port-scanning">Initial Port Scanning</h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># Nmap 7.95 scan initiated Tue Feb 24 12:45:56 2026 as: /usr/lib/nmap/nmap --privileged -p- -Pn -v --min-rate 1000 --max-rtt-timeout 1000ms --max-retries 5 -oN nmap_ports.txt 10.129.249.149</span>
 <span class="n">Nmap</span> <span class="n">scan</span> <span class="n">report</span> <span class="k">for</span> <span class="mf">10.129.249.149</span>
 <span class="n">Host</span> <span class="ow">is</span> <span class="n">up</span> <span class="p">(</span><span class="mf">0.27</span><span class="n">s</span> <span class="n">latency</span><span class="p">)</span><span class="o">.</span>
@@ -1123,7 +1346,8 @@
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="what-is-phpspreadsheet">What is phpspreadsheet?</h2>
+<div class="highlight"><pre><span></span><code>## What is phpspreadsheet?
+</code></pre></div>
 <p>Is a popular open-source PHP library used to read, write and manipulate spreadsheet files (such as .xlsx, .xls, and .csv) directly within PHP applications.</p>
 <p><img alt="" src="../Media/Pasted%20image%2020260224160707.png" /></p>
 <p><img alt="" src="../Media/Pasted%20image%2020260224162716.png" /></p>
