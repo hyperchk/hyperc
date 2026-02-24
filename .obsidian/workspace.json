@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/hack-the-box/machines/easy/linux/Soulmate/Write Up.md",
+                "file": "docs/hack-the-box/machines/medium/linux/interpreter.source.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Write Up"
+              "title": "interpreter.source"
             }
           },
           {
@@ -27,15 +27,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/hack-the-box/machines/easy/linux/Soulmate/Write Up.md",
+                "file": "docs/hack-the-box/machines/hard/linux/guardian.source.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Write Up"
+              "title": "guardian.source"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -197,20 +198,26 @@
       "bases:Create new base": false
     }
   },
-  "active": "cf3048ea78e5fa21",
+  "active": "98291b7842b8b6ba",
   "lastOpenFiles": [
+    "docs/hack-the-box/machines/hard/linux/Media/Pasted image 20260224162716.png",
+    "docs/hack-the-box/machines/hard/linux/Media/Pasted image 20260224160707.png",
+    "docs/hack-the-box/machines/hard/linux/Media/Pasted image 20260224155916.png",
+    "docs/hack-the-box/machines/hard/linux/Media/Pasted image 20260224155423.png",
+    "Media.md",
+    "docs/hack-the-box/machines/hard/linux/guardian.source.md",
+    "docs/hack-the-box/machines/hard/linux/Media/Testimonials.png",
+    "docs/hack-the-box/machines/hard/linux/Media/Pasted image 20260224154948.png",
+    "docs/hack-the-box/machines/hard/linux/Media/login1.png",
+    "Media/Testimonials,png.md",
+    "docs/hack-the-box/machines/hard/linux/Media/enter.png",
+    "docs/hack-the-box/machines/hard/linux/Media/portalGuide.png",
+    "docs/hack-the-box/machines/hard/linux/Media/code.png",
     "docs/hack-the-box/machines/medium/linux/interpreter.source.md",
-    "docs/hack-the-box/machines/medium/linux/interpreter/write-up.source.md",
-    "docs/hack-the-box/machines/medium/linux/write-up.source.md",
-    "docs/hack-the-box/machines/medium/linux/Media/version.png",
-    "docs/hack-the-box/machines/medium/linux/Media/https.png",
-    "docs/hack-the-box/machines/medium/linux/Media/http.png",
-    "docs/hack-the-box/machines/medium/linux/Media",
-    "docs/hack-the-box/machines/medium/linux/interpreter/Media/http.png",
-    "docs/hack-the-box/machines/medium/linux/interpreter/Media/version.png",
-    "docs/hack-the-box/machines/medium/linux/interpreter/Media/https.png",
-    "docs/hack-the-box/machines/medium/linux/interpreter/Media",
-    "docs/hack-the-box/machines/easy/linux/Soulmate/Write Up.md",
+    "docs/hack-the-box/machines/hard/linux/Media/portal.png",
+    "docs/hack-the-box/machines/hard/linux/Media",
+    "docs/hack-the-box/machines/easy/linux/Soulmate/soulmate.source.md",
+    "docs/PortSwiggerLabs",
     "site/search/search_index.json",
     "site/search",
     "site/hack-the-box-lives/index.html",
@@ -218,11 +225,9 @@
     "site/hack-the-box/machines/medium/windows/signed/index.html",
     "site/hack-the-box/machines/medium/windows/signed",
     "site/hack-the-box/machines/medium/windows",
-    "site/hack-the-box/machines/medium/linux/interpreter/write-up/index.html",
-    "site/assets/images/favicon.png",
-    "site/hack-the-box/machines/medium/linux/interpreter/Media/version.png",
-    "site/hack-the-box/machines/medium/linux/interpreter/Media/https.png",
-    "site/hack-the-box/machines/medium/linux/interpreter/Media/http.png",
+    "site/hack-the-box/machines/medium/linux/interpreter.source/index.html",
+    "docs/hack-the-box/machines/medium/linux/interpreter/write-up.source.md",
+    "docs/hack-the-box/machines/medium/linux/write-up.source.md",
     "docs/hack-the-box/machines/medium/linux/interpreter/write-up-source.md",
     "docs/hack-the-box/machines/medium/linux/interpreter/write-up.md",
     "docs/hack-the-box/machines/medium/linux/Interpreter/write-up.source.md",
@@ -240,10 +245,6 @@
     "node_modules/undici/docs/docs/api/WebSocket.md",
     "node_modules/undici/docs/docs/api/Util.md",
     "node_modules/undici/docs/docs/api/SnapshotAgent.md",
-    "node_modules/undici/docs/docs/api/RoundRobinPool.md",
-    "node_modules/undici/docs/docs/api/RedirectHandler.md",
-    "node_modules/undici/docs/docs/api/RetryAgent.md",
-    "node_modules/undici/docs/docs/api/RetryHandler.md",
-    "node_modules/undici/docs/docs/api/PoolStats.md"
+    "node_modules/undici/docs/docs/api/RoundRobinPool.md"
   ]
 }

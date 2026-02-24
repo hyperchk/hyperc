@@ -9,28 +9,28 @@
       
       
       
-        <link rel="prev" href="../write-up/">
+        <link rel="prev" href="../../../insane/windows/a/">
       
       
-        <link rel="next" href="../../../windows/signed/">
+        <link rel="next" href="../../windows/signed/">
       
       
         
       
       
-      <link rel="icon" href="../../../../../../assets/images/logo.jpg">
+      <link rel="icon" href="../../../../../assets/images/logo.jpg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
-        <title>Write up.source - hyperc</title>
+        <title>Interpreter - hyperc</title>
       
     
     
-      <link rel="stylesheet" href="../../../../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -49,9 +49,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../../assets/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ports" class="md-skip">
+        <a href="#interpreter" class="md-skip">
           Skip to content
         </a>
       
@@ -92,9 +92,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../../../.." title="hyperc" class="md-header__button md-logo" aria-label="hyperc" data-md-component="logo">
+    <a href="../../../../.." title="hyperc" class="md-header__button md-logo" aria-label="hyperc" data-md-component="logo">
       
-  <img src="../../../../../../assets/images/logo.jpg" alt="logo">
+  <img src="../../../../../assets/images/logo.jpg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Write up.source
+              Interpreter
             
           </span>
         </div>
@@ -203,9 +203,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../../../.." title="hyperc" class="md-nav__button md-logo" aria-label="hyperc" data-md-component="logo">
+    <a href="../../../../.." title="hyperc" class="md-nav__button md-logo" aria-label="hyperc" data-md-component="logo">
       
-  <img src="../../../../../../assets/images/logo.jpg" alt="logo">
+  <img src="../../../../../assets/images/logo.jpg" alt="logo">
 
     </a>
     hyperc
@@ -220,7 +220,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../.." class="md-nav__link">
+      <a href="../../../../.." class="md-nav__link">
         
   
   
@@ -247,7 +247,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../methodology/" class="md-nav__link">
+      <a href="../../../../../methodology/" class="md-nav__link">
         
   
   
@@ -274,7 +274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../research/" class="md-nav__link">
+      <a href="../../../../../research/" class="md-nav__link">
         
   
   
@@ -301,7 +301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../tooling/" class="md-nav__link">
+      <a href="../../../../../tooling/" class="md-nav__link">
         
   
   
@@ -453,7 +453,7 @@
   
   
   
-    <a href="../../../../easy/linux/Soulmate/Write%20Up/" class="md-nav__link">
+    <a href="../../../easy/linux/Soulmate/Write%20Up/" class="md-nav__link">
       
   
   
@@ -510,7 +510,7 @@
   
   
   
-    <a href="../../../../hard/linux/a/" class="md-nav__link">
+    <a href="../../../hard/linux/a/" class="md-nav__link">
       
   
   
@@ -565,7 +565,7 @@
   
   
   
-    <a href="../../../../insane/linux/a/" class="md-nav__link">
+    <a href="../../../insane/linux/a/" class="md-nav__link">
       
   
   
@@ -704,89 +704,12 @@
   
   
   
-    
-    
-    
-    
-    
-      
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1_4_1_1" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_5_1_4_1_1" id="__nav_5_1_4_1_1_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Interpreter
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_5_1_4_1_1_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_5_1_4_1_1">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Interpreter
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../write-up/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    interpreter Write Up
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
+      
+        
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
@@ -796,7 +719,7 @@
   <span class="md-ellipsis">
     
   
-    Write up.source
+    Interpreter
   
 
     
@@ -814,7 +737,7 @@
   <span class="md-ellipsis">
     
   
-    Write up.source
+    Interpreter
   
 
     
@@ -829,6 +752,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">
@@ -1082,14 +1007,6 @@
 
               
             
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
               
                 
   
@@ -1112,7 +1029,7 @@
   
   
   
-    <a href="../../../windows/signed/" class="md-nav__link">
+    <a href="../../windows/signed/" class="md-nav__link">
       
   
   
@@ -1184,7 +1101,7 @@
   
   
   
-    <a href="../../../../../../hack-the-box-lives/" class="md-nav__link">
+    <a href="../../../../../hack-the-box-lives/" class="md-nav__link">
       
   
   
@@ -1226,6 +1143,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">
@@ -1487,7 +1406,7 @@
   
   
     <li class="md-path__item">
-      <a href="../../../../../.." class="md-path__link">
+      <a href="../../../../.." class="md-path__link">
         
   <span class="md-ellipsis">
     hyperc
@@ -1525,7 +1444,7 @@
     
     
       <li class="md-path__item">
-        <a href="../../../../easy/linux/Soulmate/Write%20Up/" class="md-path__link">
+        <a href="../../../easy/linux/Soulmate/Write%20Up/" class="md-path__link">
           
   <span class="md-ellipsis">
     Hack the box
@@ -1570,7 +1489,7 @@
     
     
       <li class="md-path__item">
-        <a href="../../../../easy/linux/Soulmate/Write%20Up/" class="md-path__link">
+        <a href="../../../easy/linux/Soulmate/Write%20Up/" class="md-path__link">
           
   <span class="md-ellipsis">
     Machines
@@ -1601,13 +1520,8 @@
   
     
     
-      
-  
-  
-    
-    
       <li class="md-path__item">
-        <a href="../write-up/" class="md-path__link">
+        <a href="./" class="md-path__link">
           
   <span class="md-ellipsis">
     Medium
@@ -1621,46 +1535,17 @@
     
   
 
-    
-  
-
       
         
   
   
     
     
-      
-  
-  
-    
-    
       <li class="md-path__item">
-        <a href="../write-up/" class="md-path__link">
+        <a href="./" class="md-path__link">
           
   <span class="md-ellipsis">
     Linux
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-    
-  
-
-      
-        
-  
-  
-    
-    
-      <li class="md-path__item">
-        <a href="../write-up/" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    Interpreter
   </span>
 
         </a>
@@ -1679,8 +1564,7 @@
 
 
 
-  <h1>Write up.source</h1>
-
+<h1 id="interpreter">Interpreter</h1>
 <h3 id="ports">Ports</h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># Nmap 7.95 scan initiated Sat Feb 21 14:05:26 2026 as: /usr/lib/nmap/nmap --privileged -p- -Pn -v --min-rate 1000 --max-rtt-timeout 1000ms --max-retries 5 -oN nmap_ports.txt 10.129.3.94</span>
 <span class="ne">Warning</span><span class="p">:</span> <span class="mf">10.129.3.94</span> <span class="n">giving</span> <span class="n">up</span> <span class="n">on</span> <span class="n">port</span> <span class="n">because</span> <span class="n">retransmission</span> <span class="n">cap</span> <span class="n">hit</span> <span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span>
@@ -2222,12 +2106,10 @@ asdfjaflkasjdf;lajs</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../../..", "features": ["content.code.copy", "navigation.prune", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.path", "navigation.instant", "content.code.copy", "search.highlight", "search.suggest", "search.highlight", "search.suggest"], "search": "../../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["content.code.copy", "navigation.prune", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.path", "navigation.instant", "content.code.copy", "search.highlight", "search.suggest", "search.highlight", "search.suggest"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
-      
-        <script src="../../../../../../assets/js/password-protect.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

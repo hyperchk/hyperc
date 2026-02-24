@@ -1,4 +1,4 @@
-## Initial Port Scanning
+# Initial Port Scanning
 
 ```bash
 PORT   STATE SERVICE VERSION
