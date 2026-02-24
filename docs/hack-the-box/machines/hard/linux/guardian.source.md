@@ -1,3 +1,4 @@
+# Guardian
 
 # Initial Port Scanning
 
@@ -56,7 +57,7 @@ domain2='gitea.guardian.htb'
 
 #### portal.guardian.htb
 
-![portal](portal.png)
+![portall](Media/portal.png)
 
 ### Directory Enumeration
 
@@ -109,7 +110,7 @@ If we test the codes that appear in that part of the page we have:
 
 Navigating through the page on chats i found:
 
-![[Pasted image 20260224154948.png]]
+![](Media/Pasted%20image%2020260224154948.png)
 
 ``` python
 http://portal.guardian.htb/student/chat.php?chat_users[0]=13&chat_users[1]=14
@@ -121,7 +122,7 @@ try with:
 http://portal.guardian.htb/student/chat.php?chat_users[0]=1&chat_users[1]=2
 ```
 
-![[Pasted image 20260224155423.png]]
+![](Media/Pasted%20image%2020260224155423.png)
 
 The admin sent jamil.enockson his password for gitea.
 
@@ -136,7 +137,7 @@ jamil.enockson@guardian.htb
 DHsNnk3V503
 ```
 
-![[Pasted image 20260224155916.png]]
+![](Media/Pasted%20image%2020260224155916.png)
 
 In the composer.json file:
 
@@ -153,9 +154,9 @@ In the composer.json file:
 
 Is a popular open-source PHP library used to read, write and manipulate spreadsheet files (such as .xlsx, .xls, and .csv) directly within PHP applications.
 
-![[Pasted image 20260224160707.png]]
+![](Media/Pasted%20image%2020260224160707.png)
 
-![[Pasted image 20260224162716.png]]
+![](Media/Pasted%20image%2020260224162716.png)
 
 [Cross-Site Scripting (XSS) vulnerability in generateNavigation() function](https://github.com/PHPOffice/PhpSpreadsheet/security/advisories/GHSA-79xx-vf93-p7cx)
 

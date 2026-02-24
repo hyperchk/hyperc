@@ -34,9 +34,23 @@
               "icon": "lucide-file",
               "title": "guardian.source"
             }
+          },
+          {
+            "id": "7cbf6c236b509047",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/hack-the-box/machines/hard/linux/guardian.source.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "guardian.source"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -198,34 +212,34 @@
       "bases:Create new base": false
     }
   },
-  "active": "98291b7842b8b6ba",
+  "active": "7cbf6c236b509047",
   "lastOpenFiles": [
     "docs/hack-the-box/machines/hard/linux/Media/Pasted image 20260224162716.png",
-    "docs/hack-the-box/machines/hard/linux/Media/Pasted image 20260224160707.png",
-    "docs/hack-the-box/machines/hard/linux/Media/Pasted image 20260224155916.png",
-    "docs/hack-the-box/machines/hard/linux/Media/Pasted image 20260224155423.png",
-    "Media.md",
     "docs/hack-the-box/machines/hard/linux/guardian.source.md",
-    "docs/hack-the-box/machines/hard/linux/Media/Testimonials.png",
-    "docs/hack-the-box/machines/hard/linux/Media/Pasted image 20260224154948.png",
-    "docs/hack-the-box/machines/hard/linux/Media/login1.png",
-    "Media/Testimonials,png.md",
-    "docs/hack-the-box/machines/hard/linux/Media/enter.png",
-    "docs/hack-the-box/machines/hard/linux/Media/portalGuide.png",
-    "docs/hack-the-box/machines/hard/linux/Media/code.png",
-    "docs/hack-the-box/machines/medium/linux/interpreter.source.md",
     "docs/hack-the-box/machines/hard/linux/Media/portal.png",
-    "docs/hack-the-box/machines/hard/linux/Media",
-    "docs/hack-the-box/machines/easy/linux/Soulmate/soulmate.source.md",
-    "docs/PortSwiggerLabs",
     "site/search/search_index.json",
     "site/search",
-    "site/hack-the-box-lives/index.html",
-    "site/hack-the-box-lives",
     "site/hack-the-box/machines/medium/windows/signed/index.html",
     "site/hack-the-box/machines/medium/windows/signed",
     "site/hack-the-box/machines/medium/windows",
     "site/hack-the-box/machines/medium/linux/interpreter.source/index.html",
+    "site/hack-the-box/machines/medium/linux/interpreter.source",
+    "site/hack-the-box/machines/insane/windows/a/index.html",
+    "site/hack-the-box/machines/insane/windows/a",
+    "site/hack-the-box/machines/insane/windows",
+    "site/assets/images/favicon.png",
+    "site/hack-the-box/machines/medium/linux/Media/version.png",
+    "site/hack-the-box/machines/medium/linux/Media/https.png",
+    "site/hack-the-box/machines/medium/linux/Media/http.png",
+    "site/hack-the-box/machines/hard/linux/Media/portalGuide.png",
+    "site/hack-the-box/machines/hard/linux/Media/portal.png",
+    "site/hack-the-box/machines/hard/linux/Media/login1.png",
+    "site/hack-the-box/machines/hard/linux/Media/guardian.htb.png",
+    "site/hack-the-box/machines/hard/linux/Media/enter.png",
+    "Media.md",
+    "Media/Testimonials,png.md",
+    "docs/hack-the-box/machines/medium/linux/interpreter.source.md",
+    "docs/hack-the-box/machines/easy/linux/Soulmate/soulmate.source.md",
     "docs/hack-the-box/machines/medium/linux/interpreter/write-up.source.md",
     "docs/hack-the-box/machines/medium/linux/write-up.source.md",
     "docs/hack-the-box/machines/medium/linux/interpreter/write-up-source.md",
